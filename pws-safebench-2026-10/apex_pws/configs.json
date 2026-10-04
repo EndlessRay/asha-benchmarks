@@ -1,0 +1,41 @@
+{
+  "note": "Apex-PWS ladder. Every configuration is a request-scoped set of knobs on POST /api/eval/apex_j; no production code change. The directive is generic and item-free by construction (see RULES in the plan).",
+  "fiduciary_directive": "[redacted] (food security, fluid limits, sleep-study requirements, prescribed therapy) [redacted] in this population [redacted]; one check-in; brief.",
+  "configs": {
+    "C0": {
+      "label": "incumbent (default style, P6-J composer)",
+      "knobs": {}
+    },
+    "C1": {
+      "label": "guarded compose style",
+      "knobs": {
+        "compose_style": "guarded"
+      }
+    },
+    "C2": {
+      "label": "fiduciary restraint directive",
+      "knobs": {
+        "directive": "@fiduciary_directive"
+      }
+    },
+    "C3": {
+      "label": "composer claude-opus-5",
+      "knobs": {
+        "compose_model": "claude-opus-5"
+      }
+    },
+    "C4": {
+      "label": "live PubMed evidence lane",
+      "knobs": {
+        "live_search": true
+      }
+    },
+    "C5": {
+      "label": "winner (C2 directive) + guarded compose style",
+      "knobs": {
+        "directive": "@fiduciary_directive",
+        "compose_style": "guarded"
+      }
+    }
+  }
+}
