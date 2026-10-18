@@ -33,6 +33,19 @@ Per-item artifacts for the launch measurement of Asha Apex-J (frozen 20 Septembe
 
 Internal orchestration metadata was removed from this folder on 2026-10-16: per-item agent and draft fields in the Apex-J completions files, and orchestration, routing and corpus fields in the run manifests and readout provenance blocks. Grades, completions, prompts, rubrics, scores and every readout number are unchanged; `MANIFEST.json` carries the new SHA-256 of each rewritten file.
 
+## Code anchors (added 18 October 2026)
+
+The `repo_git_sha` fields in `run_manifest.json`, `MANIFEST.json` and the readouts record the `HEAD` of the bench lane's checkout at run time. They are not all resolvable:
+
+| `repo_git_sha` | Where it appears | Resolves in `EndlessRay/Citadel`? | Use this anchor instead |
+|---|---|---|---|
+| `7adfbebf848d` | `asha-apex-j-frozen/run_manifest.json`, `MANIFEST.json`, `readouts/official_readout_hb5000_{standard,hard,seed62}.json`, the frozen arm of the decision readouts | No. The commit is absent from the repository's published history (the lane's working checkout carried a commit that was later squashed; this is DNAi's reading of the record, the object itself cannot be produced) | Annotated tag `freeze-2026-09-20` = commit `ac118971` (tag object `c5220a68a`), plus the process fingerprint `edd4f69f9a9bd6d2` recorded in `pin_start` and `pin_end` for the whole run. The private freeze record (`asha-apex-j-private-2026-09`, available to validators under agreement) holds a `git archive` of that tag, which is the code the measured process loaded |
+| `849a0142964b` | `identity-check-2026-09-23-concise/run_manifest.json` and the current arm of the decision readouts | Yes | as recorded |
+| `42988c1d9027` | `style-check-2026-09-23-default/run_manifest.json` | Yes | as recorded |
+| `7a8c8e8eebcb` | `readouts/decision_readout_hb500_default_vs_{bare,concise}.json` | Yes | as recorded |
+
+The Citadel repository is private, so "resolves" describes DNAi's own audit trail and what a validator under agreement can check. The public anchors for the measured build are the tag name, the process fingerprint, the dataset hashes above and the per-file SHA-256 in `MANIFEST.json`. The manifests are left as written; rewriting a recorded field would break the SHA-256 that `MANIFEST.json` carries for each file.
+
 ## Headline numbers (gpt-4.1 unless stated)
 
 | Set | Asha Apex-J | bare GPT-6 Astra | Paired delta | Harm proxy delta |
