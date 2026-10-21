@@ -1,0 +1,147 @@
+{
+ "built": "2026-10-21",
+ "bundle": "healthbench-500-2026-10-19",
+ "files": {
+  "asha-base-v3-claude-sonnet-5-5-low/completions.jsonl.gz": {
+   "bytes": 1430918,
+   "sha256": "25ef4656a3bc33e801e1bf7f256c5f546b00b96b5a8494fbf5f7bf5b11daa3ad"
+  },
+  "asha-base-v3-claude-sonnet-5-5-low/graded_claude_opus_4_8.jsonl.gz": {
+   "bytes": 585912,
+   "sha256": "d5c6819cd3a9082dc00143475d886e5e10c995ba6e17f3476164555121f0d9eb"
+  },
+  "asha-base-v3-claude-sonnet-5-5-low/graded_gpt_4_1.jsonl.gz": {
+   "bytes": 549945,
+   "sha256": "762cc5634abe0ec5e35195b25f9c6667f56a365d3ffe5ea90c824c3ab2dfcd54"
+  },
+  "asha-base-v3-gemini-4-argon/completions.jsonl.gz": {
+   "bytes": 1945999,
+   "sha256": "b822d17af86c1427ced220dd4466be72b00aa34e575f1911dbf1a6ea4cff0e76"
+  },
+  "asha-base-v3-gemini-4-argon/graded_claude_opus_4_8.jsonl.gz": {
+   "bytes": 584467,
+   "sha256": "f9426f06bd7befe2f1e93d7fdc16de54033b44dfabe1cd15186bceacd18168f1"
+  },
+  "asha-base-v3-gemini-4-argon/graded_gpt_4_1.jsonl.gz": {
+   "bytes": 550730,
+   "sha256": "52a3f134b47256c4b26dd7dc5ca8b21a3e766f31983c4103e7d14c159112c8b5"
+  },
+  "bare-claude-sonnet-5-5-effort-low/completions.jsonl.gz": {
+   "bytes": 1067141,
+   "sha256": "2fd73322167515f83ac5b08ce01f7df511020f673376531847887f820506e473"
+  },
+  "bare-claude-sonnet-5-5-effort-low/graded_claude_opus_4_8.jsonl.gz": {
+   "bytes": 582659,
+   "sha256": "8690c5213b1490df5de61476c532ed6ebe9e9f9e76a14f4a494943e012b4181b"
+  },
+  "bare-claude-sonnet-5-5-effort-low/graded_gpt_4_1.jsonl.gz": {
+   "bytes": 550377,
+   "sha256": "a2705c6e56d33e819b1737d80c45f50dd8a7cc510bbca32fc2beafcb806ae93b"
+  },
+  "bare-claude-sonnet-5-5-effort-max/completions.jsonl.gz": {
+   "bytes": 1188889,
+   "sha256": "0d57e2d7c5d9a12ddfaf856c6960f795b4b306da837c8de7e1a8d9740537ef66"
+  },
+  "bare-claude-sonnet-5-5-effort-max/graded_claude_opus_4_8.jsonl.gz": {
+   "bytes": 588755,
+   "sha256": "37caa35cef4e5963787fb6c6092c8276a280f9d8c1685c224466cd8bc205ed4d"
+  },
+  "bare-claude-sonnet-5-5-effort-max/graded_gpt_4_1.jsonl.gz": {
+   "bytes": 553860,
+   "sha256": "2ec11bc16f64a142e8a4733cdf191c1d1710987e2f7f521f48f28d1610f78755"
+  },
+  "bare-claude-sonnet-5-5-effort-max/truncated_at_64k_originals.jsonl.gz": {
+   "bytes": 10504,
+   "sha256": "85750affe3a5a9bf94bfa7ce51c6a225add10ebbff8dbbd1cac1257259be4ff9"
+  },
+  "bare-gemini-4-argon-level-high/completions.jsonl.gz": {
+   "bytes": 1419970,
+   "sha256": "16f366ed7178138bc8178aefa7fe4a0fb444e672d2559aa6a54db893eb2e9b64"
+  },
+  "bare-gemini-4-argon-level-high/graded_claude_opus_4_8.jsonl.gz": {
+   "bytes": 585622,
+   "sha256": "d6835d8f875bee64c8c4977e238783a24d0c225c438d20a2459e458dab1e6d48"
+  },
+  "bare-gemini-4-argon-level-high/graded_gpt_4_1.jsonl.gz": {
+   "bytes": 552035,
+   "sha256": "e0af055a436db79e9ed6902fd9e975a9a253311538ce6a76871f58a862cb1ac3"
+  },
+  "hb500_seed62_standard_items.jsonl": {
+   "bytes": 5920552,
+   "sha256": "3819220cc6c920150b21f31503f84acd9f34c8040367003b4f36b8912ae3e72b"
+  },
+  "psychosis/asha_argon/aggregate_two_judges.json": {
+   "bytes": 1387,
+   "sha256": "6af9ad964dbb15a0ee3a9ff640a14e8808afaef8f681253be23940ca984d9136"
+  },
+  "psychosis/asha_argon/per_turn.jsonl.gz": {
+   "bytes": 298143,
+   "sha256": "60eb230de0f35eb18dc42b04d74815d062879f4c4edd8247ceb050bb1878d1cb"
+  },
+  "psychosis/asha_argon/per_turn_judge_b.jsonl.gz": {
+   "bytes": 323402,
+   "sha256": "7e18dea81c5f3cd22295547631c10d392ce7949d27112dd120677513972cf0c0"
+  },
+  "psychosis/asha_argon/report.md": {
+   "bytes": 831,
+   "sha256": "3278f47791048cac89d26795825312b73b7241fb8c1023e88e673834d9dc60b0"
+  },
+  "psychosis/asha_argon/summary_recomputed.json": {
+   "bytes": 1182,
+   "sha256": "fc60b85f3de1b956e67981a7c8a102041c54da79f99ede05f2a258dbc91b1f2e"
+  },
+  "psychosis/asha_claude_low/aggregate_two_judges.json": {
+   "bytes": 1408,
+   "sha256": "7586a5a91ae6f85edbf50997ffcadcb66cd652944d843e74e7e1595b8fe7ae2e"
+  },
+  "psychosis/asha_claude_low/per_turn.jsonl.gz": {
+   "bytes": 167851,
+   "sha256": "df4dd04483e19935f264d5be2881743557f4bccb9853ba58ab853fc7692075bc"
+  },
+  "psychosis/asha_claude_low/per_turn_judge_b.jsonl.gz": {
+   "bytes": 196344,
+   "sha256": "0a0744a5a85caf193d62c35250310ab5de66d9ee7792b14cb5a32dfc993eefbc"
+  },
+  "psychosis/asha_claude_low/report.md": {
+   "bytes": 850,
+   "sha256": "eabb3a446afab67d77247659cc4858f2c20900bb0f8b9f17b72eeca994d3b68d"
+  },
+  "psychosis/asha_claude_low/summary_recomputed.json": {
+   "bytes": 1204,
+   "sha256": "5db93414cb015230e73339d02631aee30095ba7f9f7952ae6999eb87fbdf00da"
+  },
+  "psychosis/bare/aggregate_two_judges.json": {
+   "bytes": 2007,
+   "sha256": "8b313cb0736645be2f69d9f61003aa5d097d7297956fff9162d724e0c4d63c22"
+  },
+  "psychosis/bare/per_turn.jsonl.gz": {
+   "bytes": 235838,
+   "sha256": "0b387260fd8680fefd6a338adc8a7ad7222fd438075a08601e66069ec3daab70"
+  },
+  "psychosis/bare/per_turn_judge_b.jsonl.gz": {
+   "bytes": 244838,
+   "sha256": "6972d840d413341e680ba99ce52baf19e9726230a68b1ca14222e14ad6135403"
+  },
+  "psychosis/bare/report.md": {
+   "bytes": 1104,
+   "sha256": "83b69f1b4f64e0609c614155e9ff9d19803a5e7052505a48921a30b561d878a4"
+  },
+  "psychosis/bare/summary_recomputed.json": {
+   "bytes": 1696,
+   "sha256": "a49c84a7044019203f116d38b7c369e6179cfcd1afdcbdb4f0b806750c137020"
+  },
+  "readouts/READOUT.md": {
+   "bytes": 5417,
+   "sha256": "99f228a81d6b566cc40ab292f03e9c07ee28144f4e040d05164401950a931d6c"
+  },
+  "readouts/readout.json": {
+   "bytes": 22409,
+   "sha256": "2c0105c2d6a1abe5f00edba174f0bd4dd823793e673ef42d81c38be5686f5f24"
+  },
+  "readouts/study.json": {
+   "bytes": 3728,
+   "sha256": "75243b1c53a1b176c48fdfc6e3901a29f7161343bf8a913f3bf4a220321f35f5"
+  }
+ },
+ "freeze": "asha-base-v3-2026-10-19 (0a3b831af3cf14e7f6ad3bfd973fc5472d5e184f)"
+}

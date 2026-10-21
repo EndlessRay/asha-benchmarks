@@ -1,6 +1,20 @@
 # DNAi model cards
 
-DNAi Systems. Revision of 24 September 2026, the launch revision for 1 October 2026. Supersedes the internal card of 14 September.
+DNAi Systems. Revision of 21 October 2026. Supersedes the 24 September launch revision (kept in git history). Changes in this revision: the portfolio and naming rule (section 0), the October measurement of Asha Base on a reproducible freeze (section 2), the Apex lineage reconciliation and the served-build drift disclosure (section 5), and the one remaining measurement before testing stops (section 0).
+
+## 0. Portfolio and naming (21 October 2026)
+
+Three public tiers, one code freeze, one name per tier. Builds are identified by freeze date; suffixes such as "-J" are internal pipeline ids, not product names.
+
+| Public name | API id | Pipeline | Measured state on 21 October 2026 |
+|---|---|---|---|
+| **Asha Base** | `asha-base` | P2 | Measured on the reproducible freeze `asha-base-v3-2026-10-19` (commit `0a3b831af`): HealthBench seed-62 500 (gpt-4.1) 60.9 [57.9, 63.8]; psychosis-bench SIS 100 / 100. Done. |
+| **Asha Mid** | `asha-mid` | P5 | Last measured June 2026 on retired model snapshots. One measurement pending on the same freeze and items; if it does not clear Base by 1.5 points it leaves the public portfolio and stays an internal cascade band. |
+| **Asha Apex** | `asha-apex` | P6-J | Last measured 20 September 2026 (the launch build). The served build's agent models changed on 14 October with no identity run since. One measurement pending on the same freeze and items, which also chooses the composer by a pre-signed rule (section 5, "Lineage"). |
+
+After the pending Apex and Mid measurement and the external validator's runs on the frozen endpoints, no further DNAi-run benchmarks precede publication. The full timeline of every run is in [`BENCHMARK_TIMELINE.md`](BENCHMARK_TIMELINE.md).
+
+The strongest bare model measured on the seed-62 500 is Claude Sonnet 5.5 at effort max, 63.8 [61.1, 66.6] under gpt-4.1. The frozen September Apex-J scored 61.6 on the same items under the same grader. Every lift row on the register holds the answer-writing model fixed and remains true as stated; a claim against the strongest current bare model has not been earned and is not made.
 
 Asha is an AI system in the HealthBench Professional paper's sense: a model plus a harness. Every tier below is the same neurosymbolic stack (retrieval, falsification, safety gating, composition) wrapped around vendor language models. No tier uses a fine-tuned model. Every gain over a bare model reported here is measured against that model on the same items, under the same grader. For Apex-J the comparator is the bare answer-writing model (the composer model); the agents inside Apex-J run other vendor models, so the paired difference is the effect of the whole system and cannot be attributed to any single component.
 
@@ -24,8 +38,10 @@ Numbers carry their source, set size and grader. Where a number is not on the pu
 |---|---|
 | Pipeline id | P2 |
 | Architecture | One KIL-grounded pass: retrieval across the admitted collections, evidence assembled into the prompt, one backbone call, safety gates, ledger write |
-| Backbone | Claude Sonnet 5 or Claude Opus 5, selected by task gravity |
+| Backbone | Claude Sonnet 5.5 at effort low (production since 14 October 2026; the frozen measurement pins this at every gravity). Launch revision: Claude Sonnet 5 or Opus 5 by task gravity |
 | Where it runs | Consumer queries in the low gravity band; the API default for customer keys; the panel members inside Apex-J |
+| **HealthBench seed-62 500 (gpt-4.1), October 2026, freeze `asha-base-v3-2026-10-19`** | **60.9 [57.9, 63.8]**. Same model, same effort: Asha minus bare Sonnet 5.5 low = **+0.0** [-2.2, +2.2] (gpt-4.1), -3.1 [-5.7, -0.4] (Opus 4.8). Against bare Sonnet 5.5 at effort max (63.8): -3.0 [-5.4, -0.7]; the gap is the effort setting, not the layer. Harm proxy 31.5% vs 31.8% bare (gate +2.0: pass). Answers about twice as long, cost $0.070 vs $0.010 per answer. Backbone chosen over Gemini 4 Argon by a pre-signed rule (Argon -9.3 length-adjusted). [`healthbench-500-2026-10-19/`](healthbench-500-2026-10-19/) |
+| **psychosis-bench, October 2026, same freeze** | **SIS 100 / 100** under both judges (gpt-4o-mini, claude-haiku-4-5) vs bare Sonnet 5.5 87.5 / 89.6 and bare Argon 90.6 / 94.8; zero empty answers vs 13 across the bare arms. Crisis safety is the measured value of the single-pass layer on this build |
 | Intended use | Everyday health questions, medication facts, triage guidance, documentation help; high volume, low latency |
 | Not for | Complex multi-morbidity consults (the cascade escalates); research syntheses that need the panel |
 | Latency | about 20 to 30 s typical on the API; seconds to first token on the stream path |
@@ -81,7 +97,8 @@ Numbers carry their source, set size and grader. Where a number is not on the pu
 | Where it wins and loses (Standard, gpt-4.1, vs bare Astra) | Wins every theme: global health +12.3, context seeking +11.1, hedging +9.0, health data tasks +7.4, communication +4.7, emergency referrals +4.3, complex responses +1.1. Axes: completeness +13.9, accuracy +6.6, context awareness +3.6, instruction following +1.7, communication quality −8.0. Median answer 2,725 characters vs 1,400 |
 | Deployed-code identity checks | The served code was re-run on the 500 twice after the freeze because other changes landed on the shared engine: 23 Sep, panel 63.7 vs the frozen run's 63.8, gpt-4.1 61.4 vs 61.6 (p = 0.83); 24 Sep, in progress at this revision. Both are on the register as "Also measured" |
 | Style check | The default composer style on the same code and items scored lower than concise on every grader (panel 62.2 vs 63.7; gpt-4.1 58.3 vs 61.4, p = 0.0009) and produced shorter answers. Concise stays |
-| Lineage, stated plainly | On raw rubric scoring the frozen build is below the June P6 build: 42.0 vs 44.8 on Hard under the same grader, 63.8 vs 68.4 on the 500 under the same panel. The June build's fuller answers (about 4,600 vs 2,700 characters) earn completeness points that the concise style gives up. That gap is the post-launch target |
+| Lineage, stated plainly | On raw rubric scoring the frozen build is below the June P6 build: 42.0 vs 44.8 on Hard under the same grader, 63.8 vs 68.4 on the 500 under the same panel. The June build's fuller answers (about 4,600 vs 2,700 characters) earn completeness points that the concise style gives up. **Why both are true (reconciled 21 October 2026):** the September ladder selected the concise GPT-6 Astra composer on HealthBench Professional under GPT-5.4, length-adjusted, with a harm bound; the official HealthBench metric (raw gpt-4.1) and the Vishwanath panel reward completeness, so the June Opus 4.8 composer scores higher on them. Neither build is reproducible today (both corpus snapshots are gone). The pending final run puts both composer recipes on the same freeze and the same 500 items and picks one by a pre-signed rule: higher gpt-4.1 raw score, harm within +2.0 of bare Sonnet 5.5 max, ties within 1.5 points to the cheaper concise arm. The winner is published as "Asha Apex" with its freeze date; June and September stay as lineage |
+| **Served-build drift (disclosed 21 October 2026)** | Production still routes the Apex tier through the Apex-J pipeline with the GPT-6 Astra composer, but the agents inside it take the engine's routed models, and the low model moved from Claude Sonnet 5 to Sonnet 5.5 on 14 October 2026, with further engine and retrieval commits on the shared path. No identity arm has been run on the served Apex since. The numbers in this section describe the 20 September freeze, not necessarily what the Apex tier serves today. The pending final run on the current freeze is the identity check |
 | Known limitations | Communication-quality axis below the bare answer-writing model; the gpt-4.1 harm-proxy miss above; deep-path latency; the corpus recency lanes |
 | External validation | The June builds were validated by Airpixels Innovations LLP (Package 1, signed 10 Sep 2026). The frozen Apex-J's own external validation is scheduled after launch; every per-item artifact needed for it is in this repository |
 
@@ -93,6 +110,8 @@ Numbers carry their source, set size and grader. Where a number is not on the pu
 | Retrieval | KIL, 1 pass | KIL, 3 grounded drafts | KIL per agent + FENG | KIL per agent + FENG |
 | Typical / p90 latency | ~25 s / ~30 s | ~45 s / ~50 s | 81 s / 124 s | ~80 s / ~110 s |
 | HealthBench Standard 5,000 (gpt-4.1) | 44.1 (June) | 60.6 (June) | not run on 5,000 | **60.7** |
+| HealthBench seed-62 500 (gpt-4.1), same items | **60.9** (Oct 2026, reproducible freeze) | pending | not run | 61.6 (Sept); bare Sonnet 5.5 max on the same items 63.8 |
+| psychosis-bench SIS | **100 / 100** (Oct 2026) | not run | 97.9 (June) | see register row |
 | HealthBench Hard 1,000 (gpt-4.1) | 28.4 (June) | 37.9 (June) | 44.8 (June) | **42.0** |
 | Vishwanath 500, published panel | not run | not run | 68.4 | **63.8** (OpenEvidence 62.6, UpToDate 61.3) |
 | Refusals on clinician prompts | rare | rare | 0 | 0 |

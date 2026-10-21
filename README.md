@@ -15,16 +15,18 @@ Asha is an architecture that runs around a language model: retrieval from a cura
 | HealthBench, Vishwanath et al. 500 | 500 | the study's three-judge panel | GPT-6 Astra **54.9** | Apex-J **63.8** | **+8.9**; gpt-4.1 on the same 500: +8.4 [6.1, 10.7] |
 | HealthBench Professional, holdout | 225 | GPT-5.4, length-adjusted | GPT-6 Astra **65.7** | Apex-J **67.9** | +2.2, p = 0.23, not significant; Claude Opus 4.8 grader: +4.6, p = 0.03 |
 | HealthBench Professional | 524 | length-adjusted | Claude Sonnet 5 | Base | +0.3, p = 0.88, not significant; 191 red-team items: +10.1 |
+| HealthBench, seed-62 500 (October 2026, reproducible freeze) | 500 | gpt-4.1 (official) | Claude Sonnet 5.5, effort low **60.8** | Base **60.9** | **+0.0** [-2.2, +2.2]; Opus 4.8 grader: -3.1 [-5.7, -0.4]. Bare Sonnet 5.5 at effort max on the same items: 63.8 |
+| psychosis-bench, safe interventions (October 2026, same freeze) | 96 turns | gpt-4o-mini + claude-haiku-4-5 | Claude Sonnet 5.5 **87.5% / 89.6%** | Base **100% / 100%** | **+12.5 / +10.4**; on Gemini 4 Argon: 90.6 / 94.8 bare, 100 / 100 inside Asha |
 | MedQA (USMLE, 4 options) | 1,273 | exact match | Gemini 3.1 Pro **92.3%** | Base **95.5%** | **+3.2**, McNemar p = 2.0e-5 |
 | psychosis-bench, safe interventions | 96 turns | gpt-4o-mini (protocol judge) | Gemini 2.5 Flash **30.2%** | Base **95.8%** | **+65.6**, Fisher exact p = 4.0e-23 |
 
-Brackets are 95% confidence intervals of the paired difference. Asha's estimate is higher in six of the seven comparisons and five are statistically significant. The seventh, Asha Base against Claude Sonnet 5 on all 524 Professional items, is a tie. HealthBench scores are on a 0 to 100 scale.
+Brackets are 95% confidence intervals of the paired difference. HealthBench scores are on a 0 to 100 scale. Read straight: the Apex-J rows (September 2026) show the full system scoring above its bare answer-writing model; the Base rows show the single-pass layer at a tie on HealthBench score against the same model at the same effort, with a large gain in crisis safety. The strongest bare model measured on the seed-62 500 (Claude Sonnet 5.5, effort max, 63.8) scores above the frozen Apex-J (61.6) on the same items; the rows above hold the composer model fixed and do not claim otherwise. Every run, dated, with its status: [`BENCHMARK_TIMELINE.md`](BENCHMARK_TIMELINE.md).
 
 ### What "inside Asha" means
 
 | Configuration | Where it runs | What it adds to the model |
 |---|---|---|
-| **Base** | Most traffic; the API default | One retrieval-grounded pass with safety gates. A router sends harder questions to the larger model of the same family: on MedQA, Gemini 3 Flash answered 70% of questions and 3.1 Pro the rest, so the model-alone arm (3.1 Pro) is the stronger one; on psychosis-bench, Gemini 2.5 Flash about 70% of turns and 2.5 Pro the rest; on HealthBench Professional, Claude Sonnet 5 or Opus 5 |
+| **Base** | Most traffic; the API default | One retrieval-grounded pass with safety gates. A router sends harder questions to the larger model of the same family: on MedQA, Gemini 3 Flash answered 70% of questions and 3.1 Pro the rest, so the model-alone arm (3.1 Pro) is the stronger one; on psychosis-bench, Gemini 2.5 Flash about 70% of turns and 2.5 Pro the rest; on HealthBench Professional, Claude Sonnet 5 or Opus 5; on the October 2026 seed-62 500 and psychosis-bench, pinned to Claude Sonnet 5.5 at effort low with no routing (the reproducible freeze) |
 | **Apex-J** (frozen 20 September 2026) | High-stakes traffic | A panel of specialist agents, each with its own retrieval, running on Claude Sonnet 5 and Opus 5; FENG falsifies extracted claims against the corpus; GPT-6 Astra writes the final answer |
 
 The Apex-J rows hold the answer-writing model fixed. The Asha arm also runs Claude models inside its agents, so those rows measure the whole system against its bare answer-writing model, and the difference cannot be attributed to any single component. The Base rows are closer to a single-model test; on psychosis-bench, a separate attribution study shows that bare Gemini 2.5 Pro is no safer than bare 2.5 Flash, so the Pro share does not explain the gap ([`psychosis-attribution-2026-05-12/`](psychosis-attribution-2026-05-12/)).
@@ -57,7 +59,9 @@ HealthBench answer keys, grading rubrics and stored model answers to benchmark i
 
 | Path | What | Run date | Per-item data |
 |---|---|---|---|
+| [`healthbench-500-2026-10-19/`](healthbench-500-2026-10-19/) | Frozen Asha Base (reproducible build `asha-base-v3-2026-10-19`) on the seed-62 500 beside bare Claude Sonnet 5.5 (effort max and low) and Gemini 4 Argon, two graders; psychosis-bench on the same build, two judges; SHA-256 manifest | 2026-10-19 to 20 | yes |
 | [`healthbench-5000-2026-09-20/`](healthbench-5000-2026-09-20/) | Frozen Apex-J and bare GPT-6 Astra on all 5,000 HealthBench conversations under three graders; the Vishwanath 500 under the study's panel; identity and style checks; SHA-256 manifest | 2026-09-20 to 24 | yes |
+| [`BENCHMARK_TIMELINE.md`](BENCHMARK_TIMELINE.md) | Every run in date order with build, set, grader, score, artifact and status (record, lineage, decision, diagnostic, retired, not run) | 2026-05 to 2026-10 | n/a |
 | [`healthbench-2026-06-26/`](healthbench-2026-06-26/) | June 2026 HealthBench runs (Standard, Hard, Professional aggregates), pipeline glossary ([`PIPELINES.md`](healthbench-2026-06-26/PIPELINES.md)), preprint, audit receipt | 2026-06-26 | yes (Professional: aggregates) |
 | [`medqa-2026-05-04/`](medqa-2026-05-04/) | Five arms on the SHA-256 locked MedQA test split, same day | 2026-05-04 | yes |
 | [`psychosis-bench-2026-05-11/`](psychosis-bench-2026-05-11/) | Asha against bare Gemini 2.5 Flash; two judges; pre-registered | 2026-05-11 | yes |
@@ -65,7 +69,7 @@ HealthBench answer keys, grading rubrics and stored model answers to benchmark i
 | [`enclomiphene-bench-2026-09-18/`](enclomiphene-bench-2026-09-18/) | DNAi-authored safety set, patient and clinician arms, four systems, two judges | 2026-09-18 | yes |
 | [`aom-chart-2026-08/`](aom-chart-2026-08/) | Verbatim traces on a clinician's locked pediatric chart, identity variants | 2026-08-26 | yes |
 | [`PREREGISTRATION/`](PREREGISTRATION/) | Commit-locked hypotheses | 2026-05-11 | n/a |
-| [`MODEL_CARDS.md`](MODEL_CARDS.md) | The Asha tiers: architecture, models, intended use, limitations | 2026-09-24 | n/a |
+| [`MODEL_CARDS.md`](MODEL_CARDS.md) | The Asha tiers: architecture, models, intended use, limitations; portfolio and naming rule; Apex lineage reconciliation | 2026-10-21 | n/a |
 | [`BENCHMARKS.md`](BENCHMARKS.md), [`register/`](register/), [`tools/`](tools/) | The register rendered as a document, its dated JSON, and the renderer | 2026-09-24 | n/a |
 | [`a2a/`](a2a/) | Agent cards and integration guides (A2A protocol) for Asha, Polymath, Sage, Artha, Harley and FENG | | n/a |
 | [`CHAPTERS.md`](CHAPTERS.md) | The May to September 2026 narrative of the MedQA, psychosis-bench, attribution and enclomiphene chapters, as first published | | n/a |

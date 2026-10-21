@@ -1,0 +1,81 @@
+{
+ "study": "full500_2026-10 (signed GO 2026-10-19: HealthBench seed-62 500, two Asha Base arms beside their bare models)",
+ "dataset": "../../healthbench_data/hb500_seed62_standard.jsonl",
+ "provenance": {
+  "dataset": {
+   "sha256": "3819220cc6c920150b21f31503f84acd9f34c8040367003b4f36b8912ae3e72b",
+   "n": 500,
+   "sorted_ids_sha256": "1cfe2d98175a58be58a3746e875657dd06c2b81d6d39faeeb70ec5910ac87afc"
+  },
+  "freeze": {
+   "asha-base-v3-2026-10-19": "0a3b831af3cf14e7f6ad3bfd973fc5472d5e184f",
+   "image": "sha256:5b03db98bc82ae43974a8d58e1899e1fc6aa5cf62e9267e559de5c0a1d4a6d67",
+   "compose.yml": "d382a8a55de994fd9e6efb89f2d713f8477425c29afe7234d215c55820469f1b",
+   "runtime.env (hash only)": "b7e432ae80fe4949bf75c8c68def14a7339c31ae75b8358800be168fe6b10cf5"
+  },
+  "harness": {
+   "grader tests/healthbench_grader.py": "0f883a18cd71669a2b53546bf452d8905ca22a09a68b26a3067e6a76498248fc",
+   "tools/bench_ledger.py": "7eae6e5885aadac8561a75fa95fe6e7ad07c678fa85a469f36c87901bff3cfc9",
+   "tools/hbp_score.py": "03e260bce1f1205559c40499daaa13751ec1e750230525882841425ccd8379d5",
+   "tools/psychosis_ledger_rows.py": "ebd02bf756cc5ff3acf671594a2753d0f239a422bf4c6f9466aa0c6c38a28e30",
+   "tools/redteam_readout.py": "ffa4c6b85d5efe296bc9663b9dfa84eb97464c9891bcd216e07732ddfe5b4959",
+   "tools/run_bare_model.py": "3bc020b38faaf2cb8b96eaf3395b9b075293d706c65c101494aeea2ea75ba228",
+   "tools/slice_turn_traces.py": "3cb5740e5e2d7ff952e87c8865177247e386a498b47056ce5bb55cfc895f5229",
+   "tools/status.py": "71c8d502ad3dd381e9d1c9a13d156276c5f7bc5258e72a65466c8a96a0247c5c",
+   "tools/full500_202610.sh": "d0cadbf076086c49f4e9d20a05e272f6465b50dcc358f8e48add5877252af272"
+  },
+  "written_utc": "2026-10-20T02:14:22+00:00"
+ },
+ "arms": [
+  {
+   "label": "asha_claude_low",
+   "note": "Asha Base v3 pinned to claude-sonnet-5-5, effort low at every gravity, web off, lanes :8021/:8022.",
+   "completions": "asha_claude_low/completions.jsonl",
+   "traces": "asha_claude_low/traces",
+   "graded": {
+    "gpt-4.1": "asha_claude_low/raw_gpt_4_1_graded.jsonl",
+    "claude-opus-4-8": "asha_claude_low/raw_claude_opus_4_8_graded.jsonl"
+   }
+  },
+  {
+   "label": "asha_argon",
+   "note": "Asha Base v3 pinned to gemini-4-argon, gravity-mapped thinking level, GEMINI_GENERATION_TIMEOUT=600, web off, lanes :8023/:8024.",
+   "completions": "asha_argon/completions.jsonl",
+   "traces": "asha_argon/traces",
+   "graded": {
+    "gpt-4.1": "asha_argon/raw_gpt_4_1_graded.jsonl",
+    "claude-opus-4-8": "asha_argon/raw_claude_opus_4_8_graded.jsonl"
+   }
+  },
+  {
+   "label": "bare_sonnet55",
+   "note": "Claude Sonnet 5.5 alone: adaptive thinking, effort max, no retrieval, no system prompt.",
+   "completions": "bare_sonnet55/completions.jsonl",
+   "traces": "bare_sonnet55/traces",
+   "graded": {
+    "gpt-4.1": "bare_sonnet55/raw_gpt_4_1_graded.jsonl",
+    "claude-opus-4-8": "bare_sonnet55/raw_claude_opus_4_8_graded.jsonl"
+   }
+  },
+  {
+   "label": "bare_argon",
+   "note": "Gemini 4 Argon alone (Vertex global), thinking level high.",
+   "completions": "bare_argon/completions.jsonl",
+   "traces": "bare_argon/traces",
+   "graded": {
+    "gpt-4.1": "bare_argon/raw_gpt_4_1_graded.jsonl",
+    "claude-opus-4-8": "bare_argon/raw_claude_opus_4_8_graded.jsonl"
+   }
+  },
+  {
+   "label": "bare_sonnet55_low",
+   "note": "Diagnostic (principal ask 2026-10-19, after the readout): Claude Sonnet 5.5 alone at effort low, to separate the Asha layer from the effort difference.",
+   "completions": "bare_sonnet55_low/completions.jsonl",
+   "traces": "bare_sonnet55_low/traces",
+   "graded": {
+    "gpt-4.1": "bare_sonnet55_low/raw_gpt_4_1_graded.jsonl",
+    "claude-opus-4-8": "bare_sonnet55_low/raw_claude_opus_4_8_graded.jsonl"
+   }
+  }
+ ]
+}
