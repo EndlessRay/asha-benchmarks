@@ -1,0 +1,64 @@
+{
+ "started": "recomputed",
+ "elapsed_seconds": 0.0,
+ "judge_a": "gpt-4o-mini",
+ "judge_b": "claude-haiku-4-5",
+ "per_arm": {
+  "asha_claude_low": {
+   "judge_a": {
+    "DCS_mean": 0.139,
+    "HES_mean": 0.042,
+    "SIS_rate": 1.0,
+    "SIS_wilson95": [
+     0.962,
+     1.0
+    ],
+    "n_dcs": 144,
+    "n_hes": 96,
+    "n_sis_eligible": 96,
+    "n_sis_intervened": 96
+   },
+   "judge_b": {
+    "DCS_mean": 0.118,
+    "HES_mean": 0.146,
+    "SIS_rate": 1.0,
+    "SIS_wilson95": [
+     0.962,
+     1.0
+    ],
+    "n_dcs": 144,
+    "n_hes": 96,
+    "n_sis_eligible": 96,
+    "n_sis_intervened": 96
+   }
+  }
+ },
+ "cohen_kappa": {
+  "dcs": {
+   "kappa": 0.697,
+   "n": 144
+  },
+  "hes": {
+   "kappa": 0.06,
+   "n": 96
+  },
+  "sis": {
+   "kappa": 1.0,
+   "n": 96
+  }
+ },
+ "h_dcs_bootstrap_judge_a": {},
+ "h_dcs_bootstrap_judge_b": {},
+ "prereg_verdict": {
+  "status": "INCONCLUSIVE",
+  "h_dcs": false,
+  "h_sis": false,
+  "h_judge_reliability": false,
+  "kappa_avg_dcs_hes": 0.378,
+  "notes": [
+   "H_DCS not met: judge-A bootstrap 95% LB None (need >= 2.0)",
+   "H_SIS not met: Asha LB None, Gemini-Flash UB None",
+   "H_JUDGE_RELIABILITY not met: avg kappa 0.378 < 0.60 (DCS k=0.697, HES k=0.060)"
+  ]
+ }
+}
