@@ -1,0 +1,101 @@
+{
+ "built": "2026-10-23",
+ "bundle": "healthbench-repro40-2026-10-22",
+ "files": {
+  "asha-apex-v3-composer-claude-opus-5-default/completions.jsonl.gz": {
+   "bytes": 140849,
+   "sha256": "8591df6672427bcf1610640d46b7a72fa957c20b3864764c58e8180771015ba3"
+  },
+  "asha-apex-v3-composer-claude-opus-5-default/graded_claude_opus_4_8.jsonl.gz": {
+   "bytes": 47239,
+   "sha256": "27a271024d0d379b1a67dc44ac90aa71328e112044d8c6e1e6a683a614b89ee5"
+  },
+  "asha-apex-v3-composer-claude-opus-5-default/graded_gpt_4_1.jsonl.gz": {
+   "bytes": 44304,
+   "sha256": "fa0aa9745268cadd604126ec9de17196629733c93a70948f3f051a6b4ec4919a"
+  },
+  "asha-apex-v3-composer-gpt-6-astra-concise/completions.jsonl.gz": {
+   "bytes": 90288,
+   "sha256": "a988f2c1da70e65b7f690b2a36d97dd76d88110bb2d682c612858b8ae8018b44"
+  },
+  "asha-apex-v3-composer-gpt-6-astra-concise/graded_claude_opus_4_8.jsonl.gz": {
+   "bytes": 46521,
+   "sha256": "f9597638fbc2020dcae10893c6d7479492ca3b6d55b803fa29f3fcf8504d279b"
+  },
+  "asha-apex-v3-composer-gpt-6-astra-concise/graded_gpt_4_1.jsonl.gz": {
+   "bytes": 43395,
+   "sha256": "204bbc0020638d5fd9e4976efdd718408bd78e2327254178931a0549e3675b88"
+  },
+  "asha-base-v3-claude-sonnet-5-5-low/completions.jsonl.gz": {
+   "bytes": 115849,
+   "sha256": "d58818db8f93a9696f02d01ee8082d82491bf642c73a5a903c4b504f54d80522"
+  },
+  "asha-base-v3-claude-sonnet-5-5-low/graded_claude_opus_4_8.jsonl.gz": {
+   "bytes": 46687,
+   "sha256": "d76cfd37bca32e9b301d9db53af0751d4d3e17e2157b87d3b1318f5285549730"
+  },
+  "asha-base-v3-claude-sonnet-5-5-low/graded_gpt_4_1.jsonl.gz": {
+   "bytes": 43686,
+   "sha256": "0b060d9305ee9f455e58905a85e9840d0e7a84b787938371a3eec680656e9050"
+  },
+  "asha-mid-v3-deep-mode/completions.jsonl.gz": {
+   "bytes": 100964,
+   "sha256": "a8da8cf770c562e12fd3c09461be5f9edd4d3c9c67f09ecd9cef68c5d39eb653"
+  },
+  "asha-mid-v3-deep-mode/graded_claude_opus_4_8.jsonl.gz": {
+   "bytes": 44470,
+   "sha256": "7c7d5235f87e9bbd3f9c38de2cc9282cde4cd3d83a28828c3c90ce7e5d4ebb1a"
+  },
+  "asha-mid-v3-deep-mode/graded_gpt_4_1.jsonl.gz": {
+   "bytes": 42058,
+   "sha256": "36cf109fd51b3d3af8b915c47ccecd6570ad2b5cd03f6fee0ce3e95e65c6100d"
+  },
+  "bare-claude-sonnet-5-5-effort-low/completions.jsonl.gz": {
+   "bytes": 81790,
+   "sha256": "0fbfdd56e6d5a6a7f72d61e9a7e49510333e7046c7f8f54a4b4d324867709fda"
+  },
+  "bare-claude-sonnet-5-5-effort-low/graded_claude_opus_4_8.jsonl.gz": {
+   "bytes": 46279,
+   "sha256": "af69dfd7cd98776b3c5db04a7d46983cb237d66fa33dd43cda7bee1968cf8929"
+  },
+  "bare-claude-sonnet-5-5-effort-low/graded_gpt_4_1.jsonl.gz": {
+   "bytes": 43963,
+   "sha256": "9fff621534b7de049d847467257f81dd06f26b19aeac8d4ce0a12af6ddee3cf5"
+  },
+  "bare-claude-sonnet-5-5-effort-max/completions.jsonl.gz": {
+   "bytes": 84432,
+   "sha256": "9321243f0bdc4a9169eb35298b65278d69f58b8f52739d75f4b9fb6f6d566b34"
+  },
+  "bare-claude-sonnet-5-5-effort-max/graded_claude_opus_4_8.jsonl.gz": {
+   "bytes": 46318,
+   "sha256": "ce766a5c3ac16d6f696320ac10a329c7332fbd35d53b53940e7c56cbaad76a88"
+  },
+  "bare-claude-sonnet-5-5-effort-max/graded_gpt_4_1.jsonl.gz": {
+   "bytes": 43886,
+   "sha256": "cc2da06cfa6db2916372af63ee4a8f7d4fce1a19b48ee582f5d2f6330296b9cb"
+  },
+  "readouts/READOUT.md": {
+   "bytes": 3667,
+   "sha256": "819e78ecb6784d6f36238090883bb7fc65af1d5c09c710b882bc8ecc931c54ba"
+  },
+  "readouts/driver.log": {
+   "bytes": 1475,
+   "sha256": "af43a7622ea02127c71b1fd57e58857d66da68572271cbc7b810970de8979d79"
+  },
+  "readouts/readout.json": {
+   "bytes": 8760,
+   "sha256": "ca3a4bf665727f9e4d788f2dbb5488943ba253530918320a68ba22ead1aa4ab4"
+  },
+  "repro40_items.jsonl": {
+   "bytes": 399361,
+   "sha256": "42771977445c8f4cc0cac36b09336852ee3eaee9f7bca98d4817fdd95018cdc2"
+  }
+ },
+ "freeze": "asha-base-v3-2026-10-19 (0a3b831af3cf14e7f6ad3bfd973fc5472d5e184f)",
+ "image": "citadel-frozen/asha-base:2026-10-18-genai175",
+ "sample": {
+  "n": 40,
+  "seed": 20261022,
+  "source": "hb500_seed62_standard.jsonl"
+ }
+}

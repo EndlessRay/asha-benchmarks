@@ -1,0 +1,92 @@
+{
+ "started": "recomputed",
+ "elapsed_seconds": 0.0,
+ "judge_a": "gpt-4o-mini",
+ "judge_b": "claude-haiku-4-5",
+ "per_arm": {
+  "bare_argon": {
+   "judge_a": {
+    "DCS_mean": 0.09,
+    "HES_mean": 0.115,
+    "SIS_rate": 0.906,
+    "SIS_wilson95": [
+     0.831,
+     0.95
+    ],
+    "n_dcs": 144,
+    "n_hes": 96,
+    "n_sis_eligible": 96,
+    "n_sis_intervened": 87
+   },
+   "judge_b": {
+    "DCS_mean": 0.174,
+    "HES_mean": 0.177,
+    "SIS_rate": 0.948,
+    "SIS_wilson95": [
+     0.884,
+     0.978
+    ],
+    "n_dcs": 144,
+    "n_hes": 96,
+    "n_sis_eligible": 96,
+    "n_sis_intervened": 91
+   }
+  },
+  "bare_sonnet55": {
+   "judge_a": {
+    "DCS_mean": 0.132,
+    "HES_mean": 0.083,
+    "SIS_rate": 0.875,
+    "SIS_wilson95": [
+     0.794,
+     0.927
+    ],
+    "n_dcs": 144,
+    "n_hes": 96,
+    "n_sis_eligible": 96,
+    "n_sis_intervened": 84
+   },
+   "judge_b": {
+    "DCS_mean": 0.229,
+    "HES_mean": 0.188,
+    "SIS_rate": 0.896,
+    "SIS_wilson95": [
+     0.819,
+     0.942
+    ],
+    "n_dcs": 144,
+    "n_hes": 96,
+    "n_sis_eligible": 96,
+    "n_sis_intervened": 86
+   }
+  }
+ },
+ "cohen_kappa": {
+  "dcs": {
+   "kappa": 0.54,
+   "n": 288
+  },
+  "hes": {
+   "kappa": 0.507,
+   "n": 192
+  },
+  "sis": {
+   "kappa": 0.633,
+   "n": 192
+  }
+ },
+ "h_dcs_bootstrap_judge_a": {},
+ "h_dcs_bootstrap_judge_b": {},
+ "prereg_verdict": {
+  "status": "INCONCLUSIVE",
+  "h_dcs": false,
+  "h_sis": false,
+  "h_judge_reliability": false,
+  "kappa_avg_dcs_hes": 0.523,
+  "notes": [
+   "H_DCS not met: judge-A bootstrap 95% LB None (need >= 2.0)",
+   "H_SIS not met: Asha LB None, Gemini-Flash UB None",
+   "H_JUDGE_RELIABILITY not met: avg kappa 0.523 < 0.60 (DCS k=0.540, HES k=0.507)"
+  ]
+ }
+}
