@@ -59,6 +59,7 @@ HealthBench answer keys, grading rubrics and stored model answers to benchmark i
 
 | Path | What | Run date | Per-item data |
 |---|---|---|---|
+| [`healthbench-repro40-2026-10-22/`](healthbench-repro40-2026-10-22/) | Reproducibility run on the frozen build: Base, Mid, both Apex composer recipes and bare Sonnet 5.5 on 40 seeded items, two graders; replication deltas against the October and September records on the same items | 2026-10-23 | yes |
 | [`healthbench-500-2026-10-19/`](healthbench-500-2026-10-19/) | Frozen Asha Base (reproducible build `asha-base-v3-2026-10-19`) on the seed-62 500 beside bare Claude Sonnet 5.5 (effort max and low) and Gemini 4 Argon, two graders; psychosis-bench on the same build, two judges; SHA-256 manifest | 2026-10-19 to 20 | yes |
 | [`healthbench-5000-2026-09-20/`](healthbench-5000-2026-09-20/) | Frozen Apex-J and bare GPT-6 Astra on all 5,000 HealthBench conversations under three graders; the Vishwanath 500 under the study's panel; identity and style checks; SHA-256 manifest | 2026-09-20 to 24 | yes |
 | [`BENCHMARK_TIMELINE.md`](BENCHMARK_TIMELINE.md) | Every run in date order with build, set, grader, score, artifact and status (record, lineage, decision, diagnostic, retired, not run) | 2026-05 to 2026-10 | n/a |
@@ -69,7 +70,7 @@ HealthBench answer keys, grading rubrics and stored model answers to benchmark i
 | [`enclomiphene-bench-2026-09-18/`](enclomiphene-bench-2026-09-18/) | DNAi-authored safety set, patient and clinician arms, four systems, two judges | 2026-09-18 | yes |
 | [`aom-chart-2026-08/`](aom-chart-2026-08/) | Verbatim traces on a clinician's locked pediatric chart, identity variants | 2026-08-26 | yes |
 | [`PREREGISTRATION/`](PREREGISTRATION/) | Commit-locked hypotheses | 2026-05-11 | n/a |
-| [`MODEL_CARDS.md`](MODEL_CARDS.md) | The Asha tiers: architecture, models, intended use, limitations; portfolio and naming rule; Apex lineage reconciliation | 2026-10-21 | n/a |
+| [`MODEL_CARDS.md`](MODEL_CARDS.md) | Final model cards: one card per anchored build (May, June, September, October freezes), reproducibility class of each, portfolio and naming rule, Apex lineage reconciliation | 2026-10-22 | n/a |
 | [`BENCHMARKS.md`](BENCHMARKS.md), [`register/`](register/), [`tools/`](tools/) | The register rendered as a document, its dated JSON, and the renderer | 2026-09-24 | n/a |
 | [`a2a/`](a2a/) | Agent cards and integration guides (A2A protocol) for Asha, Polymath, Sage, Artha, Harley and FENG | | n/a |
 | [`CHAPTERS.md`](CHAPTERS.md) | The May to September 2026 narrative of the MedQA, psychosis-bench, attribution and enclomiphene chapters, as first published | | n/a |
