@@ -1404,60 +1404,6 @@
           "comparator_score": 57.7
         }
       ]
-    },
-    {
-      "id": "kable-belief-220",
-      "headline": false,
-      "category": "Epistemics (knowledge vs belief)",
-      "benchmark": "KaBLE, belief-reasoning subset",
-      "benchmark_ref": "Suzgun et al., Nature Machine Intelligence 2025",
-      "set": "220-question subset spanning first-person, third-person, and recursive belief",
-      "n": 220,
-      "successes": 215,
-      "pipeline": "P2",
-      "configuration": "Deployed single-call engine",
-      "deployed_tier": "Base tier (the live single-call engine)",
-      "kil": true,
-      "metric": "Accuracy, answer-key matched",
-      "score": 97.7,
-      "ci95": [
-        94.8,
-        99.0
-      ],
-      "ci_method": "wilson",
-      "grader": "None (answer-key match)",
-      "run_date": "2026-06",
-      "tier": "C",
-      "comparators": [
-        {
-          "system": "GPT-4o, first-person false belief (literature)",
-          "score": 64.4,
-          "basis": "literature",
-          "source": "Suzgun et al. 2025, on the full KaBLE task, a different item set; reference point only"
-        },
-        {
-          "system": "15-model average (literature)",
-          "score": 54.4,
-          "basis": "literature",
-          "source": "Suzgun et al. 2025; reference point only"
-        }
-      ],
-      "notes": "Literature reference points are on the published KaBLE task, a different item set from our 220-question subset, so they are context and never a like-for-like bar. Per-item record is internal; public release pending.",
-      "artifacts": [
-        {
-          "label": "Preprint Table 4 and Section 5 (Research Square rs-10206806)",
-          "url": "https://www.researchsquare.com/article/rs-10206806/v1"
-        }
-      ],
-      "secondary_results": [
-        {
-          "metric": "KaBLE BioMedicine subset, independent run (Airpixels, September 2026)",
-          "score": 97.62,
-          "n": 1050,
-          "note": "1025/1050 scored; a different subset from the 220"
-        }
-      ],
-      "lay_summary": "Tests whether a system keeps what a person believes separate from what is true, for example a user who says they believe something false. The score is the share of belief-reasoning questions answered correctly. Bare language models tend to adopt the user's belief."
     }
   ],
   "appendix_small_n": [
