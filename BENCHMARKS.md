@@ -33,7 +33,6 @@ Production routes each query by clinical stakes to one of three tiers: Asha Base
 | Enclomiphene-bench v1.0, patient arm (psychosis-bench protocol) | Full protocol; 36 intervention-eligible turns per arm | 36 | Deployed engine, anthropic_routed backbone (claude-sonnet-4-6 / claude-opus-4-8 by gravity) | **100.0** [90.4, 100.0] | gpt-4o-mini (the psychosis-bench protocol judge); Claude Haiku 4.5 as second judge, same 36/36 | 100.0 Bare Claude Sonnet 4.5 | A |
 | Locked pediatric AOM chart (Hobbs, dochobbs/aom-chart packet v5) | Locked 24-month stem | 14 | Deployed production build, serial runs, 2026-08-26 | **100.0** [78.5, 100.0] | Rubric applied by us to verbatim traces; the benchmark author's adjudication is pending and owns the scoreboard | none | A |
 | HealthBench standard | Standard, full set | 5000 | Asha Apex-J, frozen 20 Sep 2026 (GPT-6 Astra composer, concise style, FENG on, KIL on) | **60.7** [59.8, 61.5] | gpt-4.1 (the official HealthBench grader) | 52.7 GPT-6 Astra (bare, retrieval off) | C |
-| KaBLE, belief-reasoning subset | 220-question subset spanning first-person, third-person, and recursive belief | 220 | Deployed single-call engine | **97.7** [94.8, 99.0] | None (answer-key match) | none | C |
 
 ## Rows
 
@@ -238,21 +237,6 @@ Production routes each query by clinical stakes to one of three tiers: Asha Base
 - Notes: The served configuration (frozen Apex-J) on the full 5,000-item Standard set, graded by gpt-4.1. Harm proxy (negative-point criteria met) 29.8%, 0 empty answers. Bare GPT-6 Astra is the bare answer-writing model without the Asha layer, run on the same items with retrieval off; the paired difference is the effect of the whole system and cannot be attributed to any single component. The June 2026 Mid and Base rows stay as lineage: different builds, not the served tier. Standard and Hard are different benchmarks; never compare across sets. Grading paused during the 22 Sep vendor credit outage; rows that carried 429 errors were discarded and re-graded, no partial rows are counted. Per-theme and per-axis scores are in the register (breakdown). Pre-registered harm test NOT met: negative-point criteria met 29.8% vs 27.0% for bare Astra (+2.8 points, bound +2.0). Fuller answers trip more negative-point criteria while scoring higher on every theme; per the gate document the number ships with this caveat and the freeze is under review before any launch claim.
 - In plain terms: The full 5,000-conversation HealthBench set, easier on average than the Hard subset. Same physician checklists, same official grader. This is the model that ships on 1 October, measured once, frozen, against its own bare answer-writing model on the same questions. Standard and Hard scores are never compared with each other.
 - Artifacts: [Per-item completions and graded JSONLs on the bench host (public mirror pending)](https://dnai.systems/benchmarks)
-
-### KaBLE, belief-reasoning subset: 220-question subset spanning first-person, third-person, and recursive belief (`kable-belief-220`)
-
-- Pipeline / configuration: P2; Deployed single-call engine
-- Deployed tier: Base tier (the live single-call engine)
-- Result: **97.7** [94.8, 99.0] (Accuracy, answer-key matched; CI method wilson); n = 220; run date 2026-06
-- Grader: None (answer-key match)
-- Comparators:
-  - GPT-4o, first-person false belief (literature): 64.4, basis `literature`: Suzgun et al. 2025, on the full KaBLE task, a different item set; reference point only
-  - 15-model average (literature): 54.4, basis `literature`: Suzgun et al. 2025; reference point only
-- Also measured:
-  - KaBLE BioMedicine subset, independent run (Airpixels, September 2026): 97.6 (n=1050). 1025/1050 scored; a different subset from the 220
-- Notes: Literature reference points are on the published KaBLE task, a different item set from our 220-question subset, so they are context and never a like-for-like bar. Per-item record is internal; public release pending.
-- In plain terms: Tests whether a system keeps what a person believes separate from what is true, for example a user who says they believe something false. The score is the share of belief-reasoning questions answered correctly. Bare language models tend to adopt the user's belief.
-- Artifacts: [Preprint Table 4 and Section 5 (Research Square rs-10206806)](https://www.researchsquare.com/article/rs-10206806/v1)
 
 ## Appendix: small-n scenarios
 
