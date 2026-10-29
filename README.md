@@ -64,6 +64,7 @@ HealthBench answer keys, grading rubrics and stored model answers to benchmark i
 | [`psychosis-attribution-2026-05-12/`](psychosis-attribution-2026-05-12/) | Bare Gemini 2.5 Pro against 2.5 Flash: the tier jump adds no safety | 2026-05-12 | yes |
 | [`enclomiphene-bench-2026-09-18/`](enclomiphene-bench-2026-09-18/) | DNAi-authored safety set, patient and clinician arms, four systems, two judges | 2026-09-18 | yes |
 | [`aom-chart-2026-08/`](aom-chart-2026-08/) | Verbatim traces on a clinician's locked pediatric chart, identity variants | 2026-08-26 | yes |
+| [`healthbench-open-judge/`](healthbench-open-judge/) | Grade HealthBench with a low-cost or open-weight judge: the official grader prompt verbatim, frozen judge profiles, a two-judge panel, missing-grade and polarity accounting, and the validation evidence (delta replication, self-preference, holdout, physician agreement) | 2026-10-28 | n/a |
 | [`PREREGISTRATION/`](PREREGISTRATION/) | Commit-locked hypotheses | 2026-05-11 | n/a |
 | [`MODEL_CARDS.md`](MODEL_CARDS.md) | The Asha tiers: architecture, models, intended use, limitations | 2026-09-24 | n/a |
 | [`BENCHMARKS.md`](BENCHMARKS.md), [`register/`](register/), [`tools/`](tools/) | The register rendered as a document, its dated JSON, and the renderer | 2026-09-24 | n/a |

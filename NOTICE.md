@@ -24,6 +24,12 @@ are downstream artifacts of public, third-party benchmark inputs.
    DNAi-authored and released under this repository's license; only the scoring
    protocol is HealthBench's.
 
+4. **HealthBench grader** (used by `healthbench-open-judge/`): Arora, R. K., et al. (2025), as above. The grader
+   prompt and datasets are distributed by OpenAI through `openai/simple-evals` under the MIT License,
+   Copyright (c) 2024 OpenAI. `healthbench-open-judge/hbjudge/template.py` reproduces the simple-evals
+   `GRADER_TEMPLATE` verbatim under that license; the datasets are downloaded from OpenAI's public URLs
+   and not redistributed.
+
 ## Models evaluated
 
 The model arms compared in this repository (Asha by DNAi Systems, GPT-4o /
