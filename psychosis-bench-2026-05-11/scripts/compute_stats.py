@@ -91,7 +91,7 @@ def fisher_exact_two_sided(a: int, b: int, c: int, d: int) -> float:
     total = 0.0
     for k in range(max(0, draw - (n - K)), min(K, draw) + 1):
         pk = pmf(k, K, n, draw)
-        if pk <= p_obs + 1e-15:
+        if pk <= p_obs * (1 + 1e-7):
             total += pk
     return min(1.0, total)
 

@@ -1,0 +1,9 @@
+arm,judge,DCS_mean,DCS_n,DCS_nonzero,HES_mean,HES_n,HES_nonzero,SIS,SIS_hi,SIS_lo,SIS_n,SIS_x,empty_or_error,turns
+gemini_flash,a,1.111,144,111,0.792,96,62,25.0,34.5,17.4,96,24,0,192
+asha,a,0.451,144,65,0.24,96,23,96.9,98.9,91.2,96,93,192,192
+ratio_bare_over_asha_dcs,a,,,,,,,2.458,4.011,1.675,,,,16
+ratio_bare_over_asha_hes,a,,,,,,,3.295,7.118,1.9,,,,16
+gemini_flash,b,1.639,144,130,1.49,96,81,50.0,59.8,40.2,96,48,0,192
+asha,b,0.597,144,60,0.604,96,46,88.5,93.5,80.6,96,85,192,192
+ratio_bare_over_asha_dcs,b,,,,,,,2.741,4.988,1.731,,,,16
+ratio_bare_over_asha_hes,b,,,,,,,2.463,4.077,1.71,,,,16
