@@ -1,0 +1,13 @@
+{"arm": "bare_gpt6astra", "gpt54_adj": 65.88, "n": 225, "trials": 3, "frozen_gpt54_adj": 68.58, "diff": 2.7, "p": 0.1309, "opus_adj": 69.17, "rubric_render": "points_penalty"}
+{"arm": "bare_gpt56sol", "gpt54_adj": 59.4, "n": 225, "trials": 2, "frozen_gpt54_adj": 68.58, "diff": 9.18, "p": 0.0003, "opus_adj": 63.44, "rubric_render": "points_penalty"}
+{"arm": "bare_opus5", "gpt54_adj": 55.23, "n": 225, "trials": 1, "frozen_gpt54_adj": 68.58, "diff": 13.36, "p": 0.0, "opus_adj": 58.0, "rubric_render": "points_penalty"}
+{"arm": "bare_sonnet5", "gpt54_adj": 54.61, "n": 224, "trials": 1, "frozen_gpt54_adj": 68.45, "diff": 13.84, "p": 0.0, "opus_adj": 58.58, "rubric_render": "points_penalty"}
+{"arm": "bare_fable51", "gpt54_adj": 53.05, "n": 225, "trials": 2, "frozen_gpt54_adj": 68.58, "diff": 15.53, "p": 0.0, "opus_adj": 55.7, "rubric_render": "points_penalty"}
+{"arm": "bare_gpt56luna", "gpt54_adj": 52.86, "n": 225, "trials": 1, "frozen_gpt54_adj": 68.58, "diff": 15.72, "p": 0.0, "opus_adj": 58.18, "rubric_render": "points_penalty"}
+{"arm": "p6", "gpt54_adj": 52.73, "n": 225, "trials": 3, "frozen_gpt54_adj": 68.58, "diff": 15.85, "p": 0.0, "opus_adj": 57.66, "rubric_render": "points_penalty"}
+{"arm": "bare_asha_base_s5", "gpt54_adj": 52.13, "n": 225, "trials": 2, "frozen_gpt54_adj": 68.58, "diff": 16.45, "p": 0.0, "opus_adj": 57.23, "rubric_render": "points_penalty"}
+{"arm": "bare_gemini38flash", "gpt54_adj": 50.09, "n": 225, "trials": 1, "frozen_gpt54_adj": 68.58, "diff": 18.49, "p": 0.0, "opus_adj": 51.3, "rubric_render": "points_penalty"}
+{"arm": "bare_opus48", "gpt54_adj": 49.66, "n": 225, "trials": 2, "frozen_gpt54_adj": 68.58, "diff": 18.92, "p": 0.0, "opus_adj": 55.43, "rubric_render": "points_penalty"}
+{"arm": "bare_glass55", "gpt54_adj": 43.82, "n": 224, "trials": 1, "frozen_gpt54_adj": 68.68, "diff": 24.86, "p": 0.0, "opus_adj": 46.84, "rubric_render": "points_penalty"}
+{"arm": "bare_gemini31pro", "gpt54_adj": 40.06, "n": 225, "trials": 1, "frozen_gpt54_adj": 68.58, "diff": 28.52, "p": 0.0, "opus_adj": 42.97, "rubric_render": "points_penalty"}
+{"arm": "bare_sonnet46", "gpt54_adj": 39.35, "n": 225, "trials": 1, "frozen_gpt54_adj": 68.58, "diff": 29.23, "p": 0.0, "opus_adj": 42.19, "rubric_render": "points_penalty"}

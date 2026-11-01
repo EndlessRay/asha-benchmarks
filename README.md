@@ -10,15 +10,17 @@ Asha is an architecture that runs around a language model: retrieval from a cura
 
 | Benchmark | n | Grader | Model alone | Inside Asha | Difference (points) |
 |---|---:|---|---|---|---|
-| HealthBench Hard | 1,000 | gpt-4.1 (official) | GPT-6 Astra **29.4** | Apex-J **42.0** | **+12.6** [10.7, 14.4]; length-adjusted +9.9 [8.1, 11.8] |
-| HealthBench, all conversations | 5,000 | gpt-4.1 (official) | GPT-6 Astra **52.7** | Apex-J **60.7** | **+8.0** [7.3, 8.7]; length-adjusted +5.6 [4.9, 6.3] |
-| HealthBench, Vishwanath et al. 500 | 500 | the study's three-judge panel | GPT-6 Astra **54.9** | Apex-J **63.8** | **+8.9**; gpt-4.1 on the same 500: +8.4 [6.1, 10.7] |
-| HealthBench Professional, holdout | 225 | GPT-5.4, length-adjusted | GPT-6 Astra **65.7** | Apex-J **67.9** | +2.2, p = 0.23, not significant; Claude Opus 4.8 grader: +4.6, p = 0.03 |
-| HealthBench Professional | 524 | length-adjusted | Claude Sonnet 5 | Base | +0.3, p = 0.88, not significant; 191 red-team items: +10.1 |
+| HealthBench Hard | 1,000 | gpt-4.1 (official), length-adjusted | GPT-6 Astra **33.1** | Apex-J **46.8** | **+13.7** [12.0, 15.4]; unadjusted 32.4 to 48.7, +16.3 [14.6, 18.1] |
+| HealthBench, all conversations | 5,000 | gpt-4.1 (official), length-adjusted | GPT-6 Astra **56.2** | Apex-J **63.6** | **+7.4** [6.8, 8.0]; unadjusted 55.6 to 65.5, +9.8 [9.2, 10.5] |
+| HealthBench, Vishwanath et al. 500 | 500 | the study's three-judge panel | GPT-6 Astra **54.9** | Apex-J **63.8** | **+8.9** [7.1, 10.7]; gpt-4.1 length-adjusted on the same 500: +7.2 [5.3, 9.1] |
+| HealthBench Professional, all | 525 | GPT-5.4 (official), length-adjusted | GPT-6 Astra **65.3** | Apex-J **69.6** | **+4.3** [1.8, 6.7], p < 0.001; Claude Opus 4.8 grader: 68.6 to 73.9 |
+| HealthBench Professional, holdout | 225 | GPT-5.4 (official), length-adjusted | GPT-6 Astra **65.9** | Apex-J **68.6** | +2.7, p = 0.13; Claude Opus 4.8 grader: +4.8, p = 0.01 |
+| HealthBench Professional | 524 paired | GPT-5.4 (official), length-adjusted | Claude Sonnet 5 **54.0** | Base **53.0** | -1.1, p = 0.57; 191 red-team items: +7.4, p = 0.07 |
 | MedQA (USMLE, 4 options) | 1,273 | exact match | Gemini 3.1 Pro **92.3%** | Base **95.5%** | **+3.2**, McNemar p = 2.0e-5 |
-| psychosis-bench, safe interventions | 96 turns | gpt-4o-mini (protocol judge) | Gemini 2.5 Flash **30.2%** | Base **95.8%** | **+65.6**, Fisher exact p = 4.0e-23 |
+| psychosis-bench, safe interventions | 96 turns | gpt-4o-mini (protocol judge) | Gemini 2.5 Flash **30.2%** | Base **95.8%** | **+65.6**; higher in 14 of 16 scenarios, none lower, sign test p = 1.2e-4 |
+| psychosis-bench, same weights | 96 turns | gpt-4o-mini (protocol judge) | GLM-4.7-Flash **10.4%** | Base **96.9%** | **+86.5**; higher in 16 of 16 scenarios |
 
-Brackets are 95% confidence intervals of the paired difference. Asha's estimate is higher in six of the seven comparisons and five are statistically significant. The seventh, Asha Base against Claude Sonnet 5 on all 524 Professional items, is a tie. HealthBench scores are on a 0 to 100 scale.
+Brackets are 95% confidence intervals of the paired difference. Every rubric score above is graded the way OpenAI's reference implementation grades it, with each criterion's point value shown to the grader; the re-grade, its pre-registration and a one-command reproduction are in [`healthbench-reference-rendering-2026-10-31/`](healthbench-reference-rendering-2026-10-31/). The earlier as-run grades stay in each run's folder. HealthBench scores are on a 0 to 100 scale.
 
 ### What "inside Asha" means
 
@@ -92,7 +94,7 @@ This repository consolidates nine earlier public repositories, imported with the
 - Vishwanath et al. *General-purpose large language models outperform specialized clinical AI tools on medical benchmarks.* Nature Medicine (2026). [doi:10.1038/s41591-026-04431-5](https://doi.org/10.1038/s41591-026-04431-5)
 - MedQA: Jin D. et al. arXiv:2009.13081 (2020).
 - psychosis-bench: Au Yeung J. et al. *The Psychogenic Machine.* arXiv:2509.10970v2 (2025, preprint).
-- DNAi preprint: Singh D., Anand P. *An auditable, retrieval-grounded agent architecture improves medical accuracy and conversational safety in language models.* Research Square (2026). [doi:10.21203/rs.3.rs-10206806/v1](https://doi.org/10.21203/rs.3.rs-10206806/v1)
+- DNAi preprint: Singh D., Anand P. *An auditable, retrieval-grounded agent architecture improves medical accuracy and conversational safety in language models.* Research Square (2026). [latest version](https://www.researchsquare.com/article/rs-10206806) (v1: doi:10.21203/rs.3.rs-10206806/v1)
 - Architecture: US Patent 12,555,008 B1.
 
 ## Licenses and use

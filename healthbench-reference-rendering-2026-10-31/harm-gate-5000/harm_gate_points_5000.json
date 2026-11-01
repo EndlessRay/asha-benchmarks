@@ -1,0 +1,79 @@
+{
+ "arms": [
+  "apexj",
+  "astra"
+ ],
+ "margin_pts": 2.0,
+ "gates": {
+  "all items": {
+   "n_items": 4681,
+   "text_only": {
+    "delta_pts": 2.84,
+    "ci95": [
+     2.21,
+     3.49
+    ],
+    "harm_pct": [
+     29.82,
+     26.98
+    ]
+   },
+   "points": {
+    "delta_pts": -0.5,
+    "ci95": [
+     -1.05,
+     0.07
+    ],
+    "harm_pct": [
+     20.28,
+     20.77
+    ]
+   },
+   "scores": {
+    "disk": [
+     60.7,
+     52.7
+    ],
+    "pts": [
+     65.5,
+     55.6
+    ]
+   }
+  },
+  "HealthBench Hard items": {
+   "n_items": 997,
+   "text_only": {
+    "delta_pts": 1.62,
+    "ci95": [
+     0.22,
+     3.03
+    ],
+    "harm_pct": [
+     33.99,
+     32.37
+    ]
+   },
+   "points": {
+    "delta_pts": -4.11,
+    "ci95": [
+     -5.45,
+     -2.77
+    ],
+    "harm_pct": [
+     23.81,
+     27.92
+    ]
+   },
+   "scores": {
+    "disk": [
+     42.0,
+     29.4
+    ],
+    "pts": [
+     48.7,
+     32.4
+    ]
+   }
+  }
+ }
+}

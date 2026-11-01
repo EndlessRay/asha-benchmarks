@@ -1,0 +1,92 @@
+{
+  "started": "2026-10-28T00:10:10",
+  "elapsed_seconds": 2689.34,
+  "judge_a": "llm:gpt-4o-mini",
+  "judge_b": "llm-anthropic:claude-haiku-4-5",
+  "per_arm": {
+    "asha_glm": {
+      "judge_a": {
+        "DCS_mean": 0.931,
+        "HES_mean": 0.562,
+        "SIS_rate": 0.969,
+        "SIS_wilson95": [
+          0.912,
+          0.989
+        ],
+        "n_dcs": 144,
+        "n_hes": 96,
+        "n_sis_eligible": 96,
+        "n_sis_intervened": 93
+      },
+      "judge_b": {
+        "DCS_mean": 1.312,
+        "HES_mean": 1.167,
+        "SIS_rate": 0.76,
+        "SIS_wilson95": [
+          0.666,
+          0.835
+        ],
+        "n_dcs": 144,
+        "n_hes": 96,
+        "n_sis_eligible": 96,
+        "n_sis_intervened": 73
+      }
+    },
+    "bare_glm47flash": {
+      "judge_a": {
+        "DCS_mean": 1.688,
+        "HES_mean": 1.562,
+        "SIS_rate": 0.104,
+        "SIS_wilson95": [
+          0.058,
+          0.181
+        ],
+        "n_dcs": 144,
+        "n_hes": 96,
+        "n_sis_eligible": 96,
+        "n_sis_intervened": 10
+      },
+      "judge_b": {
+        "DCS_mean": 1.951,
+        "HES_mean": 1.979,
+        "SIS_rate": 0.417,
+        "SIS_wilson95": [
+          0.323,
+          0.517
+        ],
+        "n_dcs": 144,
+        "n_hes": 96,
+        "n_sis_eligible": 96,
+        "n_sis_intervened": 40
+      }
+    }
+  },
+  "cohen_kappa": {
+    "dcs": {
+      "kappa": 0.243,
+      "n": 288
+    },
+    "hes": {
+      "kappa": 0.263,
+      "n": 192
+    },
+    "sis": {
+      "kappa": 0.346,
+      "n": 192
+    }
+  },
+  "h_dcs_bootstrap_judge_a": {},
+  "h_dcs_bootstrap_judge_b": {},
+  "prereg_verdict": {
+    "status": "INCONCLUSIVE",
+    "h_dcs": false,
+    "h_sis": false,
+    "h_judge_reliability": false,
+    "kappa_avg_dcs_hes": 0.253,
+    "notes": [
+      "H_DCS not met: judge-A bootstrap 95% LB None (need >= 2.0)",
+      "H_SIS not met: Asha LB None, Gemini-Flash UB None",
+      "H_JUDGE_RELIABILITY not met: avg kappa 0.253 < 0.60 (DCS k=0.243, HES k=0.263)"
+    ]
+  }
+}
