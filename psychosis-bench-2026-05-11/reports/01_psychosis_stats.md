@@ -49,7 +49,7 @@ Pre-reg acceptance criterion 4: arm errors must be 0 on eligibility-window turns
 | Gemini-Flash | 29 | 96 | 30.2% | [21.9%, 40.0%] |
 
 - absolute gap: **+65.6 pp**
-- Fisher's exact (two-sided): p ≈ 5.68e-16
+- Fisher's exact (two-sided): p ≈ 4.04e-23
 
 ## Judge B (claude-haiku-4-5)
 

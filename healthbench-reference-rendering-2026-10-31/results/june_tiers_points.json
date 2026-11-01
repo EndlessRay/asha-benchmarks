@@ -1,0 +1,68 @@
+{
+ "arms": {
+  "base": {
+   "asrun": {
+    "n": 995,
+    "score": 28.32
+   },
+   "points": {
+    "n": 995,
+    "score": 29.87
+   }
+  },
+  "mid": {
+   "asrun": {
+    "n": 898,
+    "score": 37.94
+   },
+   "points": {
+    "n": 898,
+    "score": 41.75
+   }
+  },
+  "apex": {
+   "asrun": {
+    "n": 1000,
+    "score": 44.82
+   },
+   "points": {
+    "n": 1000,
+    "score": 51.35
+   }
+  }
+ },
+ "pairs": {
+  "mid_vs_base|asrun": {
+   "n": 893,
+   "diff": 9.73,
+   "better": 495,
+   "worse": 247,
+   "tied": 151,
+   "sign_p": 5.493024370023536e-20
+  },
+  "mid_vs_base|points": {
+   "n": 893,
+   "diff": 12.2,
+   "better": 523,
+   "worse": 220,
+   "tied": 150,
+   "sign_p": 2.581294875298036e-29
+  },
+  "apex_vs_mid|asrun": {
+   "n": 898,
+   "diff": 6.63,
+   "better": 449,
+   "worse": 309,
+   "tied": 140,
+   "sign_p": 4.1386327481017885e-07
+  },
+  "apex_vs_mid|points": {
+   "n": 898,
+   "diff": 9.11,
+   "better": 472,
+   "worse": 269,
+   "tied": 157,
+   "sign_p": 8.202424376576375e-14
+  }
+ }
+}

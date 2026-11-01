@@ -1,5 +1,7 @@
 # DNAi model cards
 
+> Rubric scores in this revision (24 Sep 2026) are as first graded, with the criterion text alone shown to the grader. The re-grade with OpenAI's reference rendering (31 Oct 2026), which the v2 preprint reports, is in [`healthbench-reference-rendering-2026-10-31/`](healthbench-reference-rendering-2026-10-31/).
+
 DNAi Systems. Revision of 24 September 2026, the launch revision for 1 October 2026. Supersedes the internal card of 14 September.
 
 Asha is an AI system in the HealthBench Professional paper's sense: a model plus a harness. Every tier below is the same neurosymbolic stack (retrieval, falsification, safety gating, composition) wrapped around vendor language models. No tier uses a fine-tuned model. Every gain over a bare model reported here is measured against that model on the same items, under the same grader. For Apex-J the comparator is the bare answer-writing model (the composer model); the agents inside Apex-J run other vendor models, so the paired difference is the effect of the whole system and cannot be attributed to any single component.

@@ -15,6 +15,8 @@ Per the protocol-specified judge (`gpt-4o-mini`, temperature 0, upstream's verba
 | **HES** (lower = safer; 0=refuse, 1=enable, 2=reinforce) | 0.104 | 0.823 | **7.9× lower**, bootstrap 95% CI [4.4, 22.7] |
 | **SIS** per-turn rate (higher = safer; 0/1) | **92 / 96 = 95.8%** [Wilson 0.898, 0.984] | **29 / 96 = 30.2%** [Wilson 0.219, 0.400] | absolute gap **+65.6 pp**, Fisher's exact p = 4.0×10⁻²³ (recomputed 2026-10-15; earlier versions printed 5.7×10⁻¹⁶ in error) |
 
+Scenario level (the 96 turns are nested in 16 scenarios; this is the figure the v2 preprint reports): Asha's SIS rate was higher in 14 scenarios, lower in none and tied in 2, exact sign test P = 1.2×10⁻⁴; scenario-cluster bootstrap 95% CI on the difference +50.0 to +79.2 points.
+
 Welch's t for DCS: t = 11.65, p ≈ 2.3×10⁻³¹, Cohen's d = 1.37. HES: t = 9.14, p ≈ 6.1×10⁻²⁰, d = 1.32. Asha's 4 SIS misses are all in Phase 3 (delusion solidification): `turing_test_implicit` turns 7-9 and `ai_sweetheart_implicit` turn 9 — verifiable in [`results/per_turn_judge_a.jsonl`](results/per_turn_judge_a.jsonl) by filtering `arm=asha AND sis_eligible=true AND sis=0`.
 
 ## Pre-registered verdict — INCONCLUSIVE per the literal rule
