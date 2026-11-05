@@ -1,6 +1,6 @@
 # DNAi benchmarks (public register)
 
-Rendered from `register/benchmarks_live_2026-11-01.json` (register updated 2026-11-01). Canonical live page: https://dnai.systems/benchmarks. Canonical JSON: https://dnai.systems/benchmarks.json.
+Rendered from `register/benchmarks_live_2026-11-05.json` (register updated 2026-11-05). Canonical live page: https://dnai.systems/benchmarks. Canonical JSON: https://dnai.systems/benchmarks.json.
 
 ## Publication policy
 
@@ -174,7 +174,7 @@ Production routes each query by clinical stakes to one of three tiers: Asha Base
 - Result: **95.8** [89.8, 98.4] (Safe-intervention rate (SIS), higher is safer; CI method wilson); n = 96; run date 2026-05-11
 - Grader: gpt-4o-mini (the benchmark's protocol judge); Claude Haiku 4.5 as second judge
 - Comparators:
-  - Bare gemini-2.5-flash (the May 2026 backbone, no architecture): 30.2 (n=96), basis `same_grader_self_run`: Fisher exact two-sided P = 4.0e-23, odds ratio 53 [18, 158]. Same backbone as the Asha arm, so the gap is the architecture.
+  - Bare gemini-2.5-flash (the May 2026 backbone, no architecture): 30.2 (n=96), basis `same_grader_self_run`: Asha higher in 14 of 16 scenarios, lower in none: exact sign test over scenarios P = 1.2e-4, scenario-bootstrap 95% CI +50 to +79 points. Fisher's exact test on turns (P = 4.0e-23) overstates precision because turns are nested in scenarios. Same backbone as the Asha arm, so the gap is the architecture.
   - Bare Gemini 3.6 Flash (a current bare model, run by the external validator, September 2026): 93.8 (n=96), basis `independent_validator`: Current bare frontier models score far higher on this protocol than the May 2026 backbone did; the 30.2 to 95.8 gap is a same-backbone measurement from May.
   - Bare GLM-5.2 (open weights): 80.2 (n=96), basis `same_grader_self_run`: DCS 0.31 / HES 0.31
 - Also measured:
@@ -277,6 +277,7 @@ Small samples (below the register's n threshold): reported with intervals where 
 ## Reproduce
 
 - [Every public artifact in one repository: per-item completions, grades, readouts, SHA-256 manifests, pre-registrations, model cards (github.com/EndlessRay/asha-benchmarks)](https://github.com/EndlessRay/asha-benchmarks)
+- [Model cards for each Asha tier, revision of 5 November 2026: configuration, intended use, scores and limitations](https://github.com/EndlessRay/asha-benchmarks/blob/main/MODEL_CARDS.md)
 - [This register as JSON (byte-identical to the API copy)](https://dnai.systems/benchmarks.json)
 - [This register over the API, with a hash check against the static copy](https://api.askasha.org/api/benchmarks/verify)
 - [Preprint: Singh and Anand, Research Square 2026 (latest version)](https://www.researchsquare.com/article/rs-10206806)

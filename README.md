@@ -34,10 +34,10 @@ The Apex-J rows hold the answer-writing model fixed. The Asha arm also runs Clau
 ## Safety
 
 - **psychosis-bench** (Au Yeung et al. 2025; 16 scripted 12-turn scenarios): with the same model family (Asha routed about 30% of turns to Gemini 2.5 Pro), safe interventions rose from 30.2% to 95.8%, delusion confirmation fell 3.4-fold (scenario-paired bootstrap 95% CI 2.15 to 6.13) and harm enablement 7.9-fold. Both pre-registered effect hypotheses passed; agreement between the two judges fell below the pre-registered gate (kappa 0.25), which the pre-registration records as a formally inconclusive verdict. [`psychosis-bench-2026-05-11/`](psychosis-bench-2026-05-11/)
-- **Red-team clinician prompts** (HealthBench Professional, 191 items): Asha Base on Claude Sonnet 5 scored +10.1 above Sonnet 5 alone.
+- **Red-team clinician prompts** (HealthBench Professional, 191 items): Asha Base on Claude Sonnet 5 scored +7.4 above Sonnet 5 alone (p = 0.074), with no overall difference on all 524 items (-1.1, p = 0.57).
 - **Enclomiphene-bench, clinician arm** (18 adversarial prompts, DNAi-authored, small n): Asha triggered 0 of 29 harm criteria; bare Gemini 3.5 Flash, GPT-5 and Claude Sonnet 4.5 triggered them on 5, 6 and 3 prompts, and all three wrote an adolescent dose that Asha declined. These are different models from Asha's, so this is a system comparison. [`enclomiphene-bench-2026-09-18/`](enclomiphene-bench-2026-09-18/)
 - **Identity invariance** (a clinician's locked pediatric chart): the plan, dose and duration stayed the same across 36 of 36 identity variants (insurance, race, name, caregiver age, occupation, interpreter). [`aom-chart-2026-08/`](aom-chart-2026-08/)
-- **HealthBench harm proxy** (share of negative-point rubric criteria triggered, pre-registered bound: within +2.0 points of the bare model): on all 5,000 conversations the bound was **missed** under the official grader (+2.8) and met under GPT-5.4 (-0.3) and Claude Opus 4.8 (-0.4). The excess is concentrated in length and over-detail criteria; factual-error criteria account for 59 of the 1,851 extra hits. [`healthbench-5000-2026-09-20/readouts/`](healthbench-5000-2026-09-20/readouts/)
+- **HealthBench harm proxy** (share of negative-point rubric criteria triggered, pre-registered bound: within +2.0 points of the bare model): with OpenAI's reference rendering the official grader reads 20.3% against 20.8% on all 5,000 conversations (**met**) and 23.8% against 27.9% on Hard; among Hard conversations where all three graders flagged a severe harm in only one system's answer, it was Asha's in 2 and the model alone's in 17. As first graded (criterion text only) the official grader read +2.8, a miss concentrated in length and over-detail criteria (factual-error criteria were 59 of the 1,851 extra hits), while GPT-5.4 (-0.3) and Claude Opus 4.8 (-0.4) met the bound. [`healthbench-reference-rendering-2026-10-31/`](healthbench-reference-rendering-2026-10-31/), [`healthbench-5000-2026-09-20/readouts/`](healthbench-5000-2026-09-20/readouts/)
 
 ## Limits
 
@@ -68,8 +68,8 @@ HealthBench answer keys, grading rubrics and stored model answers to benchmark i
 | [`aom-chart-2026-08/`](aom-chart-2026-08/) | Verbatim traces on a clinician's locked pediatric chart, identity variants | 2026-08-26 | yes |
 | [`healthbench-open-judge/`](healthbench-open-judge/) | Grade HealthBench with a low-cost or open-weight judge: the official grader prompt verbatim, frozen judge profiles, a two-judge panel, missing-grade and polarity accounting, and the validation evidence (delta replication, self-preference, holdout, physician agreement) | 2026-10-28 | n/a |
 | [`PREREGISTRATION/`](PREREGISTRATION/) | Commit-locked hypotheses | 2026-05-11 | n/a |
-| [`MODEL_CARDS.md`](MODEL_CARDS.md) | The Asha tiers: architecture, models, intended use, limitations | 2026-09-24 | n/a |
-| [`BENCHMARKS.md`](BENCHMARKS.md), [`register/`](register/), [`tools/`](tools/) | The register rendered as a document, its dated JSON, and the renderer | 2026-09-24 | n/a |
+| [`MODEL_CARDS.md`](MODEL_CARDS.md) | The Asha tiers: architecture, models, intended use, limitations | 2026-11-05 | n/a |
+| [`BENCHMARKS.md`](BENCHMARKS.md), [`register/`](register/), [`tools/`](tools/) | The register rendered as a document, its dated JSON, and the renderer | 2026-11-05 | n/a |
 | [`a2a/`](a2a/) | Agent cards and integration guides (A2A protocol) for Asha, Polymath, Sage, Artha, Harley and FENG | | n/a |
 | [`CHAPTERS.md`](CHAPTERS.md) | The May to September 2026 narrative of the MedQA, psychosis-bench, attribution and enclomiphene chapters, as first published | | n/a |
 | [`figures/`](figures/) | Figure scripts and outputs | | n/a |
