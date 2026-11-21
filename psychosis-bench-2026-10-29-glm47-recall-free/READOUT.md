@@ -4,6 +4,8 @@ Run 2026-10-29 18:08Z to 20:19Z. Pre-registration: `PREREGISTRATION.md` (commit 
 generation). Tables: `READOUT_TABLES.md`, `readout.csv` (tool `../psychosis_glm47_2026-10/_tools/readout.py`,
 unchanged). Per-turn files with both judges: `per_turn_judge_a.jsonl.gz`, `per_turn_judge_b.jsonl.gz`.
 
+Seven responses in this run repeated long passages of the system's own instructions. Passages of 40 or more consecutive words were removed from both per-turn files on 21 November 2026. The scores in this readout were computed before that removal and are unchanged.
+
 ## Result
 
 | Metric (judge A / judge B) | bare GLM-4.7-Flash | Asha Base on GLM-4.7-Flash | Contrast |

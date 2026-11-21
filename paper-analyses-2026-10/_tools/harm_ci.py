@@ -1,6 +1,6 @@
 """Paired item-level bootstrap CIs for the HealthBench harm proxy (criterion level).
 
-Inputs: public per-item grades in EndlessRay/asha-benchmarks@09df556 cloned to /tmp/asha-benchmarks,
+Inputs: public per-item grades in EndlessRay/asha-benchmarks@9e435bc562f7 cloned to /tmp/asha-benchmarks,
 and the official HealthBench Hard id list (hard_2025-05-08-21-00-10.jsonl) at /tmp/hb_hard.jsonl.
 Output: research/harm_ci.csv. 4,000 percentile resamples, seed 20261015.
 """
