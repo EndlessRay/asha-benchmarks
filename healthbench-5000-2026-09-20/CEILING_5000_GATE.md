@@ -111,7 +111,7 @@ failure like the 18 Sep raw-file 422 at that scale burns a day.
 | HealthBench Standard, number of record | 5,000 | bare GPT-6 Astra 5,000 x 1 (same pin, same graders) | GPT-5.4 official + Opus 4.8 sensitivity |
 | HealthBench Hard | 1,000 (exact subset of the 5,000) | bare Astra restricted to the same ids; June 2026 Apex 44.8 for the history line | same |
 | Consensus subset | if its id list is public | same | same |
-| Vishwanath seed-62 sample vs OpenEvidence 62.6 / UpToDate Expert AI 61.3 | 500 (id list on the 5090 at `[redacted-path] verify 500/500 against the study's pipeline `github.com/nyuolab/clinical-llm-benchmarks`) | published values, plus bare Astra on the same 500 | **three-judge panel majority, raw HealthBench scoring** (Claude Opus 4.6, Gemini 3.1 Pro Preview, GPT-5.2: the published study's configuration, see Amendment 1); gpt-4.1 single as a second row that ties the 500 to the 5,000 main grade |
+| Vishwanath seed-62 sample vs OpenEvidence 62.6 / UpToDate Expert AI 61.3 | 500 (id list on the 5090 at `[redacted-path]`; verify 500/500 against the study's pipeline `github.com/nyuolab/clinical-llm-benchmarks`) | published values, plus bare Astra on the same 500 | **three-judge panel majority, raw HealthBench scoring** (Claude Opus 4.6, Gemini 3.1 Pro Preview, GPT-5.2: the published study's configuration, see Amendment 1); gpt-4.1 single as a second row that ties the 500 to the 5,000 main grade |
 | Theme and axis breakdowns | all tags | bare Astra | same |
 | Lyra analysis battery (empathy, bias, LGBTQ competency, intent, hedging, emergency, multilingual, refusals) | post-hoc on outputs; small extra perturbation sets where the design says so | per axis | per axis |
 

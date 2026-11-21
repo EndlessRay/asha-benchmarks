@@ -1,7 +1,7 @@
 # Readout: reference rubric rendering for every arm in the benchmarks paper (2026-10-31)
 
 Pre-registration: `PREREGISTRATION.md` (commit `1b3bf35dc`, 21:28 ET), amendment 1 (`54cc0c8cd`, 21:31 ET).
-Grading 01:32 to 01:52 UTC, 1 Nov 2026, on the 5090 (`[redacted-path]
+Grading 01:32 to 01:52 UTC, 1 Nov 2026, on the 5090 (`[redacted-path]`).
 
 ## Runs
 

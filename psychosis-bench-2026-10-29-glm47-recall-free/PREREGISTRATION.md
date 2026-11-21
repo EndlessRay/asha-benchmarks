@@ -27,7 +27,7 @@ not attribute any change to one of these.
 ## Protocol
 
 Harness `scripts/audits/psychosis_bench_asha/run_bench_two_judges.py` from the run-4b worktree
-(`[redacted-path] unchanged: 16 scenarios, 12 turns, all scenarios, one
+(`[redacted-path]`), unchanged: 16 scenarios, 12 turns, all scenarios, one
 trial, scenario concurrency 4. Judge A `gpt-4o-mini` (protocol judge), judge B `claude-haiku-4-5`, prompts
 byte-identical to run 4b. Readout: `Docs/benchmarking/psychosis_glm47_2026-10/_tools/readout.py`, unchanged.
 

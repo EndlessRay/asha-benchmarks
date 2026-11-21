@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Build a mirror root with merged [points] grade files and rerun hbp_ceiling_readout.py unchanged.
 set -eu
-W=[redacted-path] H=[redacted-path]
-C=[redacted-path] PY=[redacted-path] RO=$C/scripts/audits/healthbench_professional/hbp_ceiling_readout.py
+W=[redacted-path]; H=[redacted-path]
+C=[redacted-path]; PY=[redacted-path]; RO=$C/scripts/audits/healthbench_professional/hbp_ceiling_readout.py
 FULL=$C/healthbench_data/professional/healthbench_professional_eval.jsonl
 cd $W; mkdir -p hbp_root readouts
 for d in full_L9_concise_t1 full_L9_concise_t2 full_L9_concise_t3 bare_gpt6astra_t1 bare_gpt6astra_t2 bare_gpt6astra_t3 bare_gpt56sol_t1 bare_gpt56sol_t2 bare_fable51_t1 bare_fable51_t2 bare_opus5_t1 bare_sonnet5_t1 bare_opus48_t1 bare_opus48_t2 bare_gpt56luna_t1 bare_gemini38flash_t1 bare_gemini31pro_t1 bare_glass55_t1 bare_sonnet46_t1 p6_t1 p6_t2 p6_t3 bare_asha_base_s5_t1 bare_asha_base_s5_t2 physician; do
