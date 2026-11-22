@@ -122,7 +122,7 @@ Clinician arm (Asha), then grade:
 ```bash
 python tests/healthbench_runner.py --benchmark-mode \
   --dataset-path scripts/audits/enclomiphene_bench/data/enclomiphene_healthbench_redteam.jsonl \
-  --api-url http://<[redacted-host]-host>:8001 --output-dir healthbench_results/enclomiphene --concurrency 2
+  --api-url http://<api-host>:8001 --output-dir healthbench_results/enclomiphene --concurrency 2
 
 python tests/healthbench_grader.py \
   --results-file healthbench_results/enclomiphene/healthbench_asha_<STAMP>.jsonl --once --model gpt-4.1
