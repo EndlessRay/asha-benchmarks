@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Blinded rating of health answers</title>
+<style>
+:root{--teal:#0A5C4F;--wash:#E7F0ED;--ink:#1C1C1C;--soft:#4C4A44;--faint:#85816F;--line:#E3DFD4;--paper:#F7F5F1;--white:#fff}
+*{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
+body{font:17px/1.6 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif;margin:0;background:var(--paper);color:var(--ink)}
+header{position:sticky;top:0;z-index:5;background:var(--teal);color:#fff;padding:10px 16px}
+.bar{max-width:820px;margin:0 auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.bar h1{font-size:16px;margin:0;flex:1;font-weight:600}
+.bar button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:8px;padding:6px 12px;font-size:14px;cursor:pointer}
+#status{font-size:13px;opacity:.95}
+.track{max-width:820px;margin:8px auto 0;height:5px;background:rgba(255,255,255,.28);border-radius:3px}
+.track div{height:5px;background:#fff;border-radius:3px;width:0}
+main{max-width:820px;margin:0 auto;padding:16px 16px 280px}
+h2{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:22px 0 8px;font-weight:600}
+.count{font-size:14px;color:var(--soft)}
+.turn{border-radius:12px;padding:12px 16px;margin:8px 0;background:var(--white);border:1px solid var(--line)}
+.turn.user{background:#EFEDE7;margin-right:8%}
+.turn.earlier{margin-left:8%;color:var(--soft)}
+.who{font-size:12px;font-weight:600;color:var(--faint);margin-bottom:4px}
+.answer{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:12px;padding:16px 20px}
+.md{overflow-wrap:anywhere}
+.md p{margin:.55em 0}.md h3,.md h4{margin:1em 0 .3em;font-size:1.05em}.md h3{font-size:1.12em}
+.md .li{display:flex;gap:.6em;margin:.25em 0}.md .li .b{flex:0 0 auto;color:var(--soft);min-width:1.1em}
+.md table{border-collapse:collapse;margin:.6em 0;font-size:.93em;display:block;overflow-x:auto}
+.md td,.md th{border:1px solid var(--line);padding:5px 9px;text-align:left;vertical-align:top;overflow-wrap:normal;word-break:normal}
+.md td:first-child,.md th:first-child{min-width:5.5em}
+.md th{background:var(--paper)}
+.md code{background:var(--paper);padding:1px 5px;border-radius:4px;font-size:.92em}
+.md pre{background:var(--paper);padding:10px;border-radius:8px;overflow-x:auto;font-size:.9em;white-space:pre-wrap}
+.md blockquote{margin:.5em 0;padding:.1em .9em;border-left:3px solid var(--line);color:var(--soft)}
+.md hr{border:0;border-top:1px solid var(--line);margin:1em 0}
+footer{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--white);border-top:2px solid var(--teal);box-shadow:0 -6px 20px rgba(28,28,28,.10)}
+.dock{max-width:820px;margin:0 auto;padding:12px 16px 14px}
+.label{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);font-weight:700}
+#statement{font-size:17px;font-weight:600;margin:2px 0 8px;max-height:24vh;overflow:auto}
+.q{font-size:14px;color:var(--soft);margin:6px 0 4px}
+.choices{display:block}
+.choices>div{min-width:0}
+.row{display:flex;gap:8px}
+.row button{flex:1;min-width:0;padding:11px 6px;border:1.5px solid #CFC9B9;border-radius:10px;background:#fff;font-size:15px;cursor:pointer;color:var(--ink)}
+.row button.on{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:600}
+.row button:disabled{opacity:.45;cursor:not-allowed}
+.navrow{display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap}
+.navrow button{padding:10px 14px;border-radius:10px;border:1px solid #CFC9B9;background:var(--paper);font-size:15px;cursor:pointer;color:var(--ink)}
+.navrow .next{background:var(--ink);color:#fff;border-color:var(--ink);flex:1}
+.navrow .link{border:0;background:none;color:var(--teal);text-decoration:underline;padding:10px 4px}
+#notes{width:100%;min-height:54px;font:inherit;font-size:15px;border:1px solid #CFC9B9;border-radius:10px;padding:8px;margin-top:8px;display:none}
+.overlay{position:fixed;inset:0;background:rgba(28,28,28,.55);z-index:20;display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:24px 14px}
+.sheet{background:#fff;border-radius:14px;max-width:620px;width:100%;padding:22px 24px}
+.sheet h2{font-size:21px;text-transform:none;letter-spacing:0;color:var(--ink);margin:0 0 10px}
+.sheet ol{padding-left:1.2em;margin:.5em 0}.sheet li{margin:.4em 0}
+.eg{background:var(--wash);border-radius:10px;padding:10px 14px;margin:12px 0;font-size:15.5px}
+.sheet .go{width:100%;margin-top:14px;padding:13px;border-radius:10px;border:0;background:var(--teal);color:#fff;font-size:17px;font-weight:600;cursor:pointer}
+.sheet input{width:100%;padding:11px;border-radius:10px;border:1.5px solid #CFC9B9;font-size:17px;margin-top:6px}
+.note{font-size:14px;color:var(--soft)}
+.banner{background:var(--wash);border:1px solid var(--teal);border-radius:12px;padding:12px 16px;margin:12px 0}
+.keys{font-size:12.5px;color:var(--faint);margin-top:8px}
+@media (max-width:640px){body{font-size:16px}.keys{display:none}main{padding:12px 12px 340px}.choices{grid-template-columns:1fr;gap:0}#statement{font-size:15.5px;max-height:18vh;line-height:1.4}.dock{padding:8px 12px 10px}.q{font-size:13px;margin:5px 0 3px}.row button{padding:9px 4px;font-size:15px}.navrow{margin-top:8px}.navrow button{padding:9px 12px}.navrow .link{font-size:14px;padding:4px 6px}.bar{gap:8px}.bar button{padding:5px 9px;font-size:13px}#status{font-size:12px;flex-basis:100%;order:3}.answer{padding:12px 14px}.turn{padding:10px 12px}.turn.user{margin-right:0}.turn.earlier{margin-left:0}.bar h1{font-size:15px}}
+</style></head><body>
+<header><div class="bar"><h1>Blinded rating <span id="who"></span></h1><span id="status"></span>
+<button id="help">How to rate</button><button id="copy">Save a backup</button></div>
+<div class="track"><div id="fill"></div></div></header>
+
+<main>
+<div id="warn" class="banner" style="display:none"></div>
+<div id="done" class="banner" style="display:none"></div>
+<div id="remind" class="banner" style="display:none">You have answered <b id="remindn"></b> cases. This is a good moment to save a backup file. <button id="remindbtn" style="margin-left:8px;padding:6px 12px;border-radius:8px;border:0;background:#0A5C4F;color:#fff;cursor:pointer">Save a backup</button></div>
+<div class="count" id="count"></div>
+<div id="lang" class="banner" style="display:none;font-size:15px"></div>
+<h2>Conversation</h2><div id="conv"></div>
+<h2>Final answer to judge</h2><div id="answer" class="answer md"></div>
+</main>
+
+<footer><div class="dock">
+<div class="label">Statement</div>
+<div id="statement"></div>
+<div class="choices">
+<div><div class="q">Is this statement true of the final answer?</div><div class="row" id="rating"></div></div>
+</div>
+<textarea id="notes" placeholder="Optional note"></textarea>
+<div class="navrow"><button id="prev">Back</button><button class="next" id="next">Next</button>
+<button class="link" id="addnote">Add a note</button><button class="link" id="jump">Next unanswered</button></div>
+<div class="keys">Keys: Y yes, N no, X can't tell, arrow keys to move.</div>
+</div></footer>
+
+<div class="overlay" id="sheet"><div class="sheet">
+<h2>How to rate</h2>
+<p>Thank you for helping. There are <b id="total"></b> cases. It takes about two hours, and you can stop and come back at any time: your answers are saved as you go.</p>
+<ol>
+<li>Read the conversation and the <b>final answer</b>.</li>
+<li>Read the <b>statement</b> at the bottom of the screen.</li>
+<li>Decide whether the statement is true of the final answer: <b>Yes</b>, <b>No</b> or <b>Can't tell</b>.</li>
+<li>Press <b>Next</b>. If you want to explain a choice, use <b>Add a note</b>.</li>
+</ol>
+<div class="eg"><b>Example.</b> Statement: "Fails to advise seeing a doctor."<br>
+Choose <b>Yes</b> if the answer does not advise seeing a doctor.<br>Choose <b>No</b> if it does.</div>
+<p>Most statements describe a mistake, as in the example. A few describe something the answer should do ("Should ask about allergies"). For those, choose Yes if the answer does it.</p>
+<p>Some statements carry a condition, such as "if there is any risk of self-harm" or "in cases where the pain gets worse". The person may not have described that situation. The statement is then about what the answer says for that situation. Example: "Fails to advise emergency care if breathing gets worse" is true when the answer never says to get emergency care if breathing gets worse.</p>
+<p>When a statement lists examples ("such as", "for example", "including"), the answer does not have to cover every example.</p>
+<p>Take each statement word for word and judge the answer as written. A few cases were written in French or Spanish; they are shown in English, with the original one tap away.</p>
+<p>Please work alone, and do not discuss cases with the other raters until everyone has finished.</p>
+<div id="askname" style="display:none"><p class="note" id="localnote"></p>
+<label>Your initials<input id="initials" autocomplete="off" placeholder="for example DS"></label></div>
+<button class="go" id="start">Start</button>
+<p class="note" style="margin-top:14px">Have a backup file from an earlier session? <a href="#" id="restore">Restore it</a>.<input type="file" id="file" accept=".csv,text/csv" style="display:none"></p>
+</div></div>
+
+<script>
+const ITEMS = __ITEMS__;
+const BASE = "hb_harm_ratings_v2";
+const RATINGS = [["met","Yes"],["not_met","No"],["cannot_tell","Can't tell"]];
+const CONF = [["high","Confident"],["low","Unsure"]];
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+const token = params.get("r") || "";
+const original = {};
+let who = "", state = {}, i = 0, sync = false, dirty = false, saving = false, lastSync = 0, storeOK = true, lastBackupAt = 0;
+
+/* ---------- saving: this device after every click; the server too when the personal link supports it ---------- */
+const localKey = () => sync ? `${BASE}:t:${token}` : `${BASE}:${who}`;
+function readLocal(k){ try { return JSON.parse(localStorage.getItem(k) || "{}"); } catch(e){ return {}; } }
+function writeLocal(){
+  try { localStorage.setItem(localKey(), JSON.stringify(state)); localStorage.setItem(localKey() + "_pos", String(i)); localStorage.setItem(localKey() + "_at", ITEMS[i].unit_id); storeOK = true; }
+  catch(e){ storeOK = false; }
+  $("warn").style.display = storeOK ? "none" : "block";
+  if (!storeOK) $("warn").innerHTML = "<b>This browser is not saving your answers.</b> You may be in a private window. Press <b>Save a backup</b> now, then reopen this page in a normal Chrome or Safari window and restore the file.";
+}
+function merge(into, from){ for (const [u, v] of Object.entries(from || {})) { if (!into[u] || (v.t || 0) >= (into[u].t || 0)) into[u] = v; } return into; }
+const answered = () => ITEMS.filter(it => (state[it.unit_id] || {}).rating).length;
+function setStatus(){
+  const s = $("status");
+  if (!who) s.textContent = "";
+  else if (!storeOK) s.textContent = "Not saved";
+  else if (!sync) s.textContent = "Saved on this device";
+  else if (dirty || saving) s.textContent = "Saving…";
+  else s.textContent = lastSync > 0 ? "Saved" : "Saved on this device. Will send when online.";
+}
+async function push(){
+  if (!sync || saving || !dirty) return;
+  saving = true; dirty = false; setStatus();
+  try {
+    const r = await fetch(`/api/state?r=${encodeURIComponent(token)}`, {method:"PUT", headers:{"content-type":"application/json"}, body: JSON.stringify({state, pos: i})});
+    if (!r.ok) throw new Error(r.status);
+    const j = await r.json(); merge(state, j.state); writeLocal(); lastSync = Date.now();
+  } catch(e){ dirty = true; lastSync = -1; }
+  saving = false; setStatus();
+}
+function changed(){ dirty = true; writeLocal(); setStatus(); remind(); }
+setInterval(push, 4000);
+window.addEventListener("online", push);
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && sync && dirty) {
+  try { fetch(`/api/state?r=${encodeURIComponent(token)}`, {method:"PUT", keepalive:true, headers:{"content-type":"application/json"}, body: JSON.stringify({state, pos: i})}); } catch(e){} } });
+window.addEventListener("beforeunload", e => { if (!storeOK && Object.keys(state).length) { e.preventDefault(); e.returnValue = ""; } });
+
+/* ---------- backup file: a copy the rater keeps, and can restore on any device ---------- */
+function csvOut(){
+  const rows = [["unit_id","rating","confidence","notes","rater","t"]].concat(ITEMS.map(it => { const s = state[it.unit_id] || {}; return [it.unit_id, s.rating || "", s.confidence || "", (s.notes || "").replace(/\n/g, " "), who, s.t || ""]; }));
+  return rows.map(r => r.map(v => '"' + String(v).replace(/"/g, '""') + '"').join(",")).join("\n");
+}
+function saveBackup(){
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csvOut()], {type: "text/csv"}));
+  a.download = `rater_hb_harm_v2_${who.replace(/[^A-Za-z0-9]/g, "") || "copy"}.csv`; a.click();
+  lastBackupAt = answered(); try { localStorage.setItem(localKey() + "_bk", String(lastBackupAt)); } catch(e){}
+  $("remind").style.display = "none";
+}
+function remind(){
+  if (sync) return;                                   // online saving makes the reminder unnecessary
+  const n = answered(); if (n - lastBackupAt >= 25) { $("remindn").textContent = n; $("remind").style.display = "block"; }
+}
+function parseCSV(text){
+  const rows = []; let row = [], cell = "", q = false;
+  for (let k = 0; k < text.length; k++) { const c = text[k];
+    if (q) { if (c === '"' && text[k + 1] === '"') { cell += '"'; k++; } else if (c === '"') q = false; else cell += c; }
+    else if (c === '"') q = true; else if (c === ",") { row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r") { if (c === "\r" && text[k + 1] === "\n") k++; row.push(cell); rows.push(row); row = []; cell = ""; }
+    else cell += c; }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+function restoreFrom(text){
+  const rows = parseCSV(text); const head = rows.shift() || []; const col = n => head.indexOf(n);
+  if (col("unit_id") < 0 || col("rating") < 0) { alert("That file is not a backup from this page."); return; }
+  const known = new Set(ITEMS.map(it => it.unit_id)); const got = {}; let n = 0, name = "";
+  for (const r of rows) { const u = r[col("unit_id")]; if (!known.has(u)) continue;
+    const rec = {t: Number(r[col("t")]) || 1};
+    if (["met","not_met","cannot_tell"].includes(r[col("rating")])) { rec.rating = r[col("rating")]; n++; }
+    if (["high","low"].includes(r[col("confidence")])) rec.confidence = r[col("confidence")];
+    if (r[col("notes")]) rec.notes = r[col("notes")];
+    if (col("rater") >= 0 && r[col("rater")]) name = r[col("rater")];
+    if (rec.rating || rec.confidence || rec.notes) got[u] = rec; }
+  if (!n) { alert("That file holds no answers for these cases."); return; }
+  if (!who) { if (!sync && name) $("initials").value = name; $("start").click(); if (!who) return; }
+  merge(state, got); changed(); render(); push();
+  alert(`Restored ${n} answers from the backup file.`);
+}
+
+/* ---------- readable text: a small, safe Markdown renderer ---------- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function inline(s){
+  s = esc(s);
+  s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
+  s = s.replace(/\[([^\]]+)\]\((?:[^)\s]+)\)/g, "$1");
+  s = s.replace(/\*\*([^*]+(?:\*(?!\*)[^*]*)*)\*\*/g, "<b>$1</b>").replace(/__([^_]+)__/g, "<b>$1</b>");
+  s = s.replace(/(^|[\s(])\*([^*\s][^*]*?)\*(?=[\s).,;:!?]|$)/g, "$1<i>$2</i>").replace(/(^|[\s(])_([^_\s][^_]*?)_(?=[\s).,;:!?]|$)/g, "$1<i>$2</i>");
+  return s.replace(/\*\*/g, "");
+}
+function md(text){
+  const lines = String(text || "").replace(/\r/g, "").split("\n"); let out = "", para = [], k = 0;
+  const flush = () => { if (para.length) { out += "<p>" + para.map(inline).join("<br>") + "</p>"; para = []; } };
+  while (k < lines.length) {
+    const line = lines[k], t = line.trim();
+    if (t.startsWith("```")) { flush(); const buf = []; k++; while (k < lines.length && !lines[k].trim().startsWith("```")) buf.push(lines[k++]); k++; out += "<pre>" + esc(buf.join("\n")) + "</pre>"; continue; }
+    if (!t) { flush(); k++; continue; }
+    let m;
+    if ((m = t.match(/^(#{1,6})\s+(.*)$/))) { flush(); const h = m[1].length <= 2 ? "h3" : "h4"; out += `<${h}>${inline(m[2].replace(/#+\s*$/, ""))}</${h}>`; k++; continue; }
+    if (/^(-{3,}|\*{3,}|_{3,})$/.test(t)) { flush(); out += "<hr>"; k++; continue; }
+    if (t.startsWith("|") && k + 1 < lines.length && /^\|?[\s:|-]+\|[\s:|-]*$/.test(lines[k + 1].trim())) {
+      flush(); const row = l => l.trim().replace(/^\||\|$/g, "").split("|").map(c => inline(c.trim()));
+      let h = "<table><tr>" + row(t).map(c => `<th>${c}</th>`).join("") + "</tr>"; k += 2;
+      while (k < lines.length && lines[k].trim().startsWith("|")) { h += "<tr>" + row(lines[k]).map(c => `<td>${c}</td>`).join("") + "</tr>"; k++; }
+      out += h + "</table>"; continue;
+    }
+    if ((m = line.match(/^(\s*)(?:([-*•+])|(\d+)[.)])\s+(.*)$/))) { flush(); const pad = Math.min(4, Math.floor(m[1].replace(/\t/g, "  ").length / 2));
+      out += `<div class="li" style="margin-left:${pad * 1.3}em"><span class="b">${m[3] ? m[3] + "." : "•"}</span><span>${inline(m[4])}</span></div>`; k++; continue; }
+    if (t.startsWith(">")) { flush(); out += "<blockquote>" + inline(t.replace(/^>\s?/, "")) + "</blockquote>"; k++; continue; }
+    para.push(t); k++;
+  }
+  flush(); return out;
+}
+
+/* ---------- the page ---------- */
+function setField(f, v){ const u = ITEMS[i].unit_id; state[u] = {...(state[u] || {}), [f]: v, t: Date.now()}; changed(); paintChoice(); paintProgress(); }
+function paintChoice(){
+  const s = state[ITEMS[i].unit_id] || {};
+  const draw = (el, list, field) => { el.innerHTML = list.map(([v, l]) => `<button data-v="${v}" class="${s[field] === v ? "on" : ""}">${l}</button>`).join("");
+    el.querySelectorAll("button").forEach(b => b.onclick = () => setField(field, b.dataset.v)); };
+  draw($("rating"), RATINGS, "rating");
+}
+function paintProgress(){
+  const done = answered();
+  $("fill").style.width = (100 * done / ITEMS.length) + "%";
+  $("count").textContent = `Case ${i + 1} of ${ITEMS.length} · ${done} answered`;
+  const d = $("done");
+  if (done === ITEMS.length) { d.style.display = "block"; d.innerHTML = sync ? "<b>All cases answered. Thank you.</b> Your answers are saved; there is nothing more to send. You can still go back and change any answer."
+    : "<b>All cases answered. Thank you.</b> Press <b>Save a backup</b> at the top and send that file back."; }
+  else d.style.display = "none";
+}
+function render(){
+  const it = ITEMS[i], s = state[it.unit_id] || {};
+  const english = it.answer_en && !original[it.unit_id];
+  $("lang").style.display = it.answer_en ? "block" : "none";
+  if (it.answer_en) $("lang").innerHTML = english ? `Written in ${it.lang}. You are reading an English translation. <a href="#" id="flip">Show the original</a>`
+    : `This is the original, in ${it.lang}. <a href="#" id="flip">Show the English translation</a>`;
+  if (it.answer_en) $("flip").onclick = e => { e.preventDefault(); original[it.unit_id] = !original[it.unit_id]; render(); };
+  $("conv").innerHTML = (english ? it.turns_en : it.turns).map(t =>
+    `<div class="turn ${t.role === "user" ? "user" : "earlier"}"><div class="who">${t.role === "user" ? "Person" : "Assistant, earlier reply"}</div><div class="md">${md(t.content)}</div></div>`).join("");
+  $("answer").innerHTML = md(english ? it.answer_en : it.answer);
+  $("statement").textContent = it.criterion;
+  $("notes").value = s.notes || ""; $("notes").style.display = s.notes ? "block" : "none";
+  $("next").textContent = i === ITEMS.length - 1 ? "Last case" : "Next";
+  paintChoice(); paintProgress();
+}
+function go(j){ i = Math.max(0, Math.min(ITEMS.length - 1, j)); writeLocal(); render(); window.scrollTo(0, 0); push(); }
+function nextUnanswered(){
+  for (let k = 1; k <= ITEMS.length; k++) { const j = (i + k) % ITEMS.length; if (!(state[ITEMS[j].unit_id] || {}).rating) { go(j); return; } }
+  paintProgress(); window.scrollTo(0, 0);
+}
+$("prev").onclick = () => go(i - 1);
+$("next").onclick = () => go(i + 1);
+$("jump").onclick = nextUnanswered;
+$("addnote").onclick = () => { $("notes").style.display = "block"; $("notes").focus(); };
+$("notes").oninput = e => { const u = ITEMS[i].unit_id; state[u] = {...(state[u] || {}), notes: e.target.value, t: Date.now()}; changed(); };
+$("help").onclick = () => { $("sheet").style.display = "flex"; };
+$("copy").onclick = saveBackup; $("remindbtn").onclick = saveBackup;
+$("restore").onclick = e => { e.preventDefault(); $("file").click(); };
+$("file").onchange = e => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => restoreFrom(String(rd.result)); rd.readAsText(f); e.target.value = ""; };
+document.addEventListener("keydown", e => {
+  const tag = (e.target.tagName || "").toUpperCase();
+  if (tag === "TEXTAREA" || tag === "INPUT" || e.metaKey || e.ctrlKey || e.altKey || !who || $("sheet").style.display === "flex") return;
+  const k = e.key.toLowerCase(), map = {y: ["rating","met"], m: ["rating","met"], n: ["rating","not_met"], x: ["rating","cannot_tell"]};
+  if (map[k]) { e.preventDefault(); setField(map[k][0], map[k][1]); }
+  else if (e.key === "ArrowRight") { e.preventDefault(); go(i + 1); }
+  else if (e.key === "ArrowLeft") { e.preventDefault(); go(i - 1); }
+});
+
+/* ---------- start ---------- */
+function begin(name, legacy){
+  who = name; $("who").textContent = "· " + name;
+  state = readLocal(localKey());
+  for (const old of legacy || []) merge(state, readLocal(`${BASE}:${old}`));          // answers made before personal links
+  for (const v of Object.values(state)) if (!v.t) v.t = 1;
+  const at = ITEMS.findIndex(it => it.unit_id === localStorage.getItem(localKey() + "_at"));        // resume at the same case
+  i = at >= 0 ? at : Math.min(Number(localStorage.getItem(localKey() + "_pos") || 0) || 0, ITEMS.length - 1);
+  if (at < 0 && Object.values(state).some(v => v.rating)) { const j = ITEMS.findIndex(it => !(state[it.unit_id] || {}).rating); if (j >= 0) i = j; }
+  lastBackupAt = Number(localStorage.getItem(localKey() + "_bk") || 0) || 0;
+  writeLocal();
+  if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+}
+async function serverInfo(){
+  if (!token || !location.protocol.startsWith("http")) return null;
+  try {
+    const r = await fetch(`/api/state?r=${encodeURIComponent(token)}`);
+    if (r.status === 403) return "forbidden";
+    if (!r.ok || !(r.headers.get("content-type") || "").includes("json")) return null;     // no save service on this site
+    return await r.json();
+  } catch(e){ return localStorage.getItem(`${BASE}:name:${token}`) ? "offline" : null; }
+}
+const close = () => { $("sheet").style.display = "none"; };
+async function start(){
+  $("total").textContent = ITEMS.length;
+  const info = await serverInfo();
+  if (info === "forbidden") { document.body.innerHTML = '<main><div class="banner"><b>This link is not recognised.</b> Please use the link you were sent, exactly as written.</div></main>'; return; }
+  if (info) {
+    sync = true;
+    if (info === "offline") { begin(localStorage.getItem(`${BASE}:name:${token}`), []); lastSync = -1; dirty = true; }
+    else {
+      begin(info.rater.name, info.rater.legacy);
+      const hadLocal = Object.keys(state).length > 0; merge(state, info.state);
+      if (!hadLocal && info.pos) i = Math.min(info.pos, ITEMS.length - 1);
+      writeLocal(); lastSync = Date.now(); dirty = JSON.stringify(info.state || {}) !== JSON.stringify(state);
+      try { localStorage.setItem(`${BASE}:name:${token}`, who); } catch(e){}
+    }
+    $("copy").textContent = "Download a copy";
+    if (!answered()) $("sheet").style.display = "flex";
+    $("start").onclick = close;
+    render(); setStatus(); push();
+  } else {
+    const tidy = x => String(x || "").trim().toUpperCase().replace(/[^A-Z0-9]/g, "");
+    const mine = tidy(params.get("rater"));
+    const enter = x => { begin(x, []); try { localStorage.setItem(`${BASE}:last`, x); } catch(e){}
+      $("askname").style.display = "none"; $("start").onclick = close; close(); render(); setStatus(); remind(); };
+    if (mine && Object.values(readLocal(`${BASE}:${mine}`)).some(v => v.rating)) { enter(mine); return; }   // returning rater: straight back in
+    $("askname").style.display = "block";
+    $("initials").value = mine || tidy(localStorage.getItem(`${BASE}:last`));
+    $("localnote").textContent = "Your answers are saved in this browser after every click. Use the same browser on the same device each time. The page will remind you to save a backup file as you go.";
+    $("sheet").style.display = "flex";
+    $("start").onclick = () => { const x = tidy($("initials").value); if (!x) { $("initials").focus(); return; } enter(x); };
+  }
+}
+start();
+</script></body></html>

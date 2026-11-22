@@ -1,0 +1,163 @@
+{
+  "raters": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "units_in_kit": 220,
+  "units_analysed": 218,
+  "excluded": {
+    "hb2_169": "statement about hepatitis B prophylaxis attached to a conversation about Adderall (benchmark file fault)",
+    "hb2_201": "statement about hepatitis B prophylaxis attached to a conversation about Adderall (benchmark file fault)"
+  },
+  "context_seeking_units": 34,
+  "completion_R1": {
+    "not_met": 114,
+    "met": 104
+  },
+  "completion_R2": {
+    "not_met": 108,
+    "met": 109,
+    "cannot_tell": 1
+  },
+  "completion_R3": {
+    "met": 150,
+    "not_met": 62,
+    "cannot_tell": 6
+  },
+  "agreement_R1_R2_all": {
+    "n": 217,
+    "agree": 173,
+    "kappa": 0.5945647558386411
+  },
+  "agreement_R1_R2_disputed": {
+    "n": 117,
+    "agree": 91,
+    "kappa": 0.5560420315236427
+  },
+  "agreement_R1_R2_concordant": {
+    "n": 60,
+    "agree": 50,
+    "kappa": 0.6651785714285715
+  },
+  "agreement_R1_R2_severe": {
+    "n": 40,
+    "agree": 32,
+    "kappa": 0.6009975062344142
+  },
+  "agreement_R1_R2_asks for context": {
+    "n": 34,
+    "agree": 25,
+    "kappa": 0.4312267657992567
+  },
+  "agreement_R1_R2_other statements": {
+    "n": 183,
+    "agree": 148,
+    "kappa": 0.6155231406446966
+  },
+  "agreement_R1_R3_all": {
+    "n": 212,
+    "agree": 131,
+    "kappa": 0.2562370062370063
+  },
+  "agreement_R1_R3_disputed": {
+    "n": 114,
+    "agree": 65,
+    "kappa": 0.16201620162016198
+  },
+  "agreement_R1_R3_concordant": {
+    "n": 59,
+    "agree": 41,
+    "kappa": 0.4060402684563759
+  },
+  "agreement_R1_R3_severe": {
+    "n": 39,
+    "agree": 25,
+    "kappa": 0.30000000000000004
+  },
+  "agreement_R1_R3_asks for context": {
+    "n": 34,
+    "agree": 25,
+    "kappa": 0.3755102040816327
+  },
+  "agreement_R1_R3_other statements": {
+    "n": 178,
+    "agree": 106,
+    "kappa": 0.2264606470304201
+  },
+  "agreement_R2_R3_all": {
+    "n": 211,
+    "agree": 134,
+    "kappa": 0.2743959626635703
+  },
+  "agreement_R2_R3_disputed": {
+    "n": 113,
+    "agree": 63,
+    "kappa": 0.11883967560823458
+  },
+  "agreement_R2_R3_concordant": {
+    "n": 59,
+    "agree": 42,
+    "kappa": 0.4330130016958734
+  },
+  "agreement_R2_R3_severe": {
+    "n": 39,
+    "agree": 29,
+    "kappa": 0.48275862068965525
+  },
+  "agreement_R2_R3_asks for context": {
+    "n": 34,
+    "agree": 28,
+    "kappa": 0.564102564102564
+  },
+  "agreement_R2_R3_other statements": {
+    "n": 177,
+    "agree": 106,
+    "kappa": 0.21881021943183937
+  },
+  "fleiss_kappa": {
+    "n": 211,
+    "kappa": 0.36048978602170095
+  },
+  "concordant": {
+    "n": 59,
+    "match": 54
+  },
+  "disputed_all disputed": {
+    "n": 117,
+    "with_official": 52
+  },
+  "disputed_official says met": {
+    "n": 60,
+    "with_official": 31
+  },
+  "disputed_official says not met": {
+    "n": 57,
+    "with_official": 21
+  },
+  "disputed_Asha Apex-J": {
+    "n": 60,
+    "with_official": 23
+  },
+  "disputed_GPT-6 Astra alone": {
+    "n": 57,
+    "with_official": 29
+  },
+  "disputed_statement asks for context": {
+    "n": 10,
+    "with_official": 3
+  },
+  "disputed_other statements": {
+    "n": 107,
+    "with_official": 49
+  },
+  "severe_bare": {
+    "confirmed": 11,
+    "flagged arm cleared": 2,
+    "both arms met": 4
+  },
+  "severe_asha": {
+    "both arms met": 1,
+    "confirmed": 1
+  }
+}

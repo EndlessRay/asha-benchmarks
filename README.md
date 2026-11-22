@@ -46,7 +46,7 @@ The Apex-J rows hold the answer-writing model fixed. The Asha arm also runs Clau
 3. **Holdout.** On HealthBench Professional the shipped configuration was selected on a 300-item slice; on the 225 items never used for selection its lead under the ladder's official grader is +2.2 (p = 0.23).
 4. **Strong models alone.** Today's frontier models alone also intervene safely on psychosis-bench (bare Claude Sonnet 4.5: 100%; bare Gemini 3.6 Flash: 93.8%). The 30.2% to 95.8% gap is what Asha added to a May 2026 model that was not at the safety ceiling.
 5. **Web search.** In the Vishwanath et al. study, frontier models run with web search scored above every system here (GPT-5.2 88.0, Gemini 3.1 Pro 79.3, Claude Opus 4.6 77.0). Asha answers from its own corpus without web search; its like-for-like comparisons on that sample are with the study's clinical tools (OpenEvidence 62.6, UpToDate Expert AI 61.3, as published) and with its composer model under the same panel.
-6. **Graders.** All rubric scores come from LLM graders. No blinded physician rating of these answers has been published yet.
+6. **Graders.** All rubric scores come from LLM graders. Three physicians (the paper's two authors and a physician who advises the company) rated a sample of HealthBench Hard harm criteria with the system's identity masked: [`healthbench-physician-rating-2026-11/`](healthbench-physician-rating-2026-11/). No physician outside the company has rated these answers.
 7. **Validation.** The external re-runs and recomputations by Airpixels Innovations LLP were contracted by DNAi.
 8. **Withheld data.** HealthBench Professional per-item data are withheld at OpenAI's request; those rows are aggregate only.
 9. **Pretraining exposure.** MedQA and HealthBench are public, and every model may have seen them in pretraining. The paired difference controls for that; the absolute scores do not.
@@ -60,6 +60,7 @@ HealthBench answer keys, grading rubrics and stored model answers to benchmark i
 | Path | What | Run date | Per-item data |
 |---|---|---|---|
 | [`healthbench-5000-2026-09-20/`](healthbench-5000-2026-09-20/) | Frozen Apex-J and bare GPT-6 Astra on all 5,000 HealthBench conversations under three graders; the Vishwanath 500 under the study's panel; identity and style checks; SHA-256 manifest | 2026-09-20 to 24 | yes |
+| [`healthbench-physician-rating-2026-11/`](healthbench-physician-rating-2026-11/) | Identity-masked physician rating of 220 criterion-answer pairs on HealthBench Hard (218 analysed) by the paper's two authors and a physician who advises the company: sample, key, ratings, pre-specified readout, post hoc supplement | 2026-11-13 to 2026-11-20 | yes |
 | [`healthbench-2026-06-26/`](healthbench-2026-06-26/) | June 2026 HealthBench runs (Standard, Hard, Professional aggregates), pipeline glossary ([`PIPELINES.md`](healthbench-2026-06-26/PIPELINES.md)), preprint, audit receipt | 2026-06-26 | yes (Professional: aggregates) |
 | [`medqa-2026-05-04/`](medqa-2026-05-04/) | Five arms on the SHA-256 locked MedQA test split, same day | 2026-05-04 | yes |
 | [`psychosis-bench-2026-05-11/`](psychosis-bench-2026-05-11/) | Asha against bare Gemini 2.5 Flash; two judges; pre-registered | 2026-05-11 | yes |

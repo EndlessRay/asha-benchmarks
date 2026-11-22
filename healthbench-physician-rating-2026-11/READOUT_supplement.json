@@ -1,0 +1,237 @@
+{
+  "raters": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "units_analysed": 218,
+  "recomputation_matches": true,
+  "tendency_R1": {
+    "met": 104,
+    "decided": 218,
+    "yes_on_grader_met": 25,
+    "no_on_grader_not_met": 27,
+    "concordant": 60
+  },
+  "tendency_R2": {
+    "met": 109,
+    "decided": 217,
+    "yes_on_grader_met": 25,
+    "no_on_grader_not_met": 27,
+    "concordant": 60
+  },
+  "tendency_R3": {
+    "met": 150,
+    "decided": 212,
+    "yes_on_grader_met": 26,
+    "no_on_grader_not_met": 17,
+    "concordant": 60
+  },
+  "met_by_quarter": {
+    "R1": [
+      28,
+      24,
+      29,
+      24
+    ],
+    "R2": [
+      30,
+      29,
+      27,
+      23
+    ],
+    "R3": [
+      41,
+      37,
+      32,
+      40
+    ]
+  },
+  "disputed": {
+    "with_official": 52,
+    "n": 117,
+    "p_even_split": 0.267182304990396,
+    "cells": {
+      "asha_disputed_official_met": {
+        "met": 14,
+        "n": 30
+      },
+      "asha_disputed_official_not_met": {
+        "met": 21,
+        "n": 30
+      },
+      "bare_disputed_official_met": {
+        "met": 17,
+        "n": 30
+      },
+      "bare_disputed_official_not_met": {
+        "met": 15,
+        "n": 27
+      }
+    },
+    "side_by_arm_fisher_p": 0.19584199522071896
+  },
+  "severe": {
+    "cells": {
+      "only the model alone": 11,
+      "both": 5,
+      "only Asha": 1,
+      "neither": 2
+    },
+    "confirmed": {
+      "bare": 11,
+      "asha": 1
+    },
+    "sign_test_p": 0.00634765625
+  },
+  "severe_without_context_seeking": {
+    "only the model alone": 8,
+    "only Asha": 1,
+    "neither": 1,
+    "both": 2
+  },
+  "rule_majority of three": {
+    "units": 216,
+    "concordant": [
+      54,
+      59
+    ],
+    "disputed_with_official": [
+      52,
+      117
+    ],
+    "severe": {
+      "only the model alone": 11,
+      "both": 5,
+      "only Asha": 1,
+      "neither": 2
+    }
+  },
+  "rule_two authors agree": {
+    "units": 173,
+    "concordant": [
+      47,
+      50
+    ],
+    "disputed_with_official": [
+      38,
+      91
+    ],
+    "severe": {
+      "only the model alone": 9,
+      "both": 2,
+      "only Asha": 1,
+      "not settled": 5,
+      "neither": 2
+    }
+  },
+  "rule_all three agree": {
+    "units": 111,
+    "concordant": [
+      35,
+      37
+    ],
+    "disputed_with_official": [
+      21,
+      51
+    ],
+    "severe": {
+      "not settled": 12,
+      "both": 2,
+      "only the model alone": 4,
+      "neither": 1
+    }
+  },
+  "rule_R1 alone": {
+    "units": 218,
+    "concordant": [
+      52,
+      60
+    ],
+    "disputed_with_official": [
+      51,
+      118
+    ],
+    "severe": {
+      "only the model alone": 10,
+      "both": 3,
+      "only Asha": 1,
+      "neither": 5
+    }
+  },
+  "rule_R2 alone": {
+    "units": 217,
+    "concordant": [
+      52,
+      60
+    ],
+    "disputed_with_official": [
+      52,
+      117
+    ],
+    "severe": {
+      "only the model alone": 12,
+      "both": 4,
+      "only Asha": 1,
+      "neither": 2
+    }
+  },
+  "rule_R3 alone": {
+    "units": 212,
+    "concordant": [
+      43,
+      59
+    ],
+    "disputed_with_official": [
+      56,
+      114
+    ],
+    "severe": {
+      "both": 10,
+      "only the model alone": 5,
+      "neither": 3,
+      "not settled": 1
+    }
+  },
+  "rule_without_asked_units": {
+    "units": 209,
+    "concordant": [
+      53,
+      58
+    ],
+    "disputed_with_official": [
+      50,
+      113
+    ],
+    "severe": {
+      "only the model alone": 12,
+      "both": 4,
+      "only Asha": 1,
+      "neither": 2
+    }
+  },
+  "with_excluded_units": {
+    "disputed_with_official": [
+      52,
+      117
+    ]
+  },
+  "patterns": {
+    "asha": {
+      "all not met": 2683,
+      "official met (any pattern)": 984,
+      "official met, others not": 188,
+      "all met": 609,
+      "other split": 466,
+      "official not met, others met": 187
+    },
+    "bare": {
+      "all not met": 2573,
+      "official met (any pattern)": 1154,
+      "other split": 370,
+      "official met, others not": 194,
+      "all met": 801,
+      "official not met, others met": 195
+    }
+  }
+}
