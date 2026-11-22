@@ -27,7 +27,7 @@ import sys
 import time
 from pathlib import Path
 
-REPO = Path("[redacted-path]
+REPO = Path("[redacted-path]")
 sys.path.insert(0, str(REPO / "tests" / "benchmarks"))
 sys.path.insert(0, str(REPO / "src" / "api"))
 

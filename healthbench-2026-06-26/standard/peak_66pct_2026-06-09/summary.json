@@ -1,5 +1,5 @@
 {
-  "source_log": "[redacted-path]
+  "source_log": "[redacted-path]",
   "pipeline": "P3 bare-ensemble-offbaa / merged_default",
   "set": "HealthBench standard 5000",
   "grader": "gpt-4.1",
