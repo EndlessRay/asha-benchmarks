@@ -1,0 +1,25 @@
+{
+  "folder": "vishwanath500-apexj-kil-2026-11-25",
+  "code": {
+    "process_fingerprint": "d1bece7dd72a72b6",
+    "citadel_commit": "968f84b43",
+    "process_started_at": "2026-11-25T20:18:58Z",
+    "generated_utc": [
+      "2026-11-25T20:20:05Z",
+      "2026-11-26T04:53:28Z"
+    ],
+    "panel_graded_utc": "2026-11-26T06:12:11Z",
+    "questions_sha256": "3dac9145bee6031aa39dc096bdea831a63e71f48b752398d532fd8ca9ca49f07 (= ../healthbench-5000-2026-09-20/vishwanath_seed62_500_items.jsonl)",
+    "panel": "Vishwanath et al. clinical_tools_extract evaluation_pipeline.py healthbench; claude-opus-4-6, gemini-3.1-pro-preview, gpt-5.2"
+  },
+  "files": {
+    "README.md": "3d4e9a2c77a30c4cf87a2e4a11db52002af2681167b94dedd7dd387b6ec0875b",
+    "completions.jsonl.gz": "0ba3773e1a97f6002a626b1e37b5319a5eff60e2bedabf2fffd5cf0aa48c6560",
+    "noasha74_ids.json": "af0052867641b0dd0c4c2943110e399e4584825b822e922a1f1ad094b0d5f4cf",
+    "panel/panel.json.gz": "6026107a03cd34029da65e7bbc61a036bec767927d469105146e9dec4ae7d401",
+    "reproduce.sh": "759c981613734e3a5bc8c12690fc067c0dfeea303853cd6fce2e0e7102f4da72",
+    "results/READOUT_panel.json": "f8e95b80b24f8f16f76d979a02944db07bd5fb7b5af1bbffb7a4568cf35ed44d",
+    "run_pin.json": "3bc51ca07b6c4e7fbc238b700e74691562915f16bfddb6fb2a8ee645e648f961",
+    "scripts/panel_readout.py": "3ab5ec4441347d68aab2843013f7ea7f3cedcaeded4b0a0ed06b32dde9ca08d5"
+  }
+}

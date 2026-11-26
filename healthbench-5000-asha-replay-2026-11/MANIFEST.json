@@ -1,0 +1,52 @@
+{
+  "folder": "healthbench-5000-asha-replay-2026-11",
+  "code": {
+    "frozen_code": {
+      "tag": "freeze-2026-09-20",
+      "commit": "ac11897129cd7f066eaa7f5ae6e6f4befaf65afd",
+      "blobs": {
+        "src/api/core/apex_j.py": "ccc32e0ddd0246b713d2513ced9f8f6b6b59687a",
+        "tests/healthbench_grader.py": "4c07c172d29ed424f3ee5374fb30f049f7d4a200"
+      }
+    },
+    "september_process_fingerprint": "edd4f69f9a9bd6d2",
+    "replay_code": {
+      "repository": "private (DNAi Citadel)",
+      "commit": "ae49dc973b3d10ef3ab55833c0563301e2c57d7e",
+      "replay.py_sha256": "64769587fb04e9345e0f144604a0e5d9b573105c7a5645c6c2666b74bb594ba8"
+    },
+    "first_pass_grader": "frozen tests/healthbench_grader.py --model gpt-4.1 (text rendering)",
+    "penalty_grader": {
+      "file": "tests/healthbench_grader.py at feat/cheap-grader-arena 58e463404",
+      "git_blob": "93b77b31ff8f7af040bfc541a541576be512e1ec",
+      "sha256": "fb2fc05026e42f9b2215ca631cb44f2e94285dfc70c99c82c620602b6e46a0e7",
+      "driver_sha256": "baefd8d569c38d42e24c3bf9ded6ad2f4299f035fd93c7d827dcdd373c024a27",
+      "settings": "gpt-4.1, --rubric-render points, temperature 0.1, max_tokens 500"
+    },
+    "panel": "Vishwanath et al. clinical_tools_extract evaluation_pipeline.py healthbench; claude-opus-4-6, gemini-3.1-pro-preview, gpt-5.2",
+    "graded_utc": "2026-11-26"
+  },
+  "files": {
+    "PREREGISTRATION.md": "e6a21f7793236505c5cedf5fcc731eb22df0dda209b59574dc3be2589be51d87",
+    "README.md": "d077173d2db58e0516422dd7b3e7be59dbd1d33526b4bae283c8cb40e5310d67",
+    "arm-a-first200/arm_A.jsonl.gz": "41c6ad79c1b09542277ef0de1c165e86451a9b3ff1ec32fa59350f3f7738e63e",
+    "arm-a-first200/arm_A_gpt41_graded.jsonl.gz": "c6399c657cb5c0c1721c8d59eef0c105a3ff42c46194e9880009c24cffdf5548",
+    "arm-a-first200/first200_A_points.jsonl.gz": "6f1c06ef327ec141aa0845dfd2a8485e025bf7b7a0120731c8340a9350b3bf53",
+    "arm-b/arm_B.jsonl.gz": "02fa8f2621ce1b28cf6bb2af06027092486945528abbb49143893d060369d81f",
+    "arm-b/arm_B_gpt41_graded.jsonl.gz": "3052148582adb76c7c4654a7798d3db9f9d620f0f1a27b8f94a55314b7e7ea14",
+    "arm-b/ext_B_points.jsonl.gz": "def97a4b3ff34bf587b671a3da78ae37356452395031b161832aa0ad68a4846e",
+    "arm-b/ext_arm_B.jsonl.gz": "6b97c7d2c94cf5267b25dffa988042d63c19209af26146ddc1853d3438f3d096",
+    "arm-b/ext_arm_B_gpt41_graded.jsonl.gz": "f4e07d8309953bc7cae8781dd09f8d1c3c9f9867420790632f73b8b894cf836e",
+    "arm-b/first200_B_points.jsonl.gz": "230fa0f633a80cd204943370e39649f254ce3fd9ea66f2cced3371b9ef3c911a",
+    "harness-check/sept_check100_points.jsonl.gz": "7cbdb6282f0f62f53f8211de35368c27c6cb249dce38608476f3c23e6290aac9",
+    "panel-74/panel.json.gz": "0298da3b69aa5742e3483da466db2d814c8129971fb816f90ef3ab6c0fe333ae",
+    "reproduce.sh": "5fb5d36804ac1a307ced85b39c3de2de68ba484a73be6901695fe9908f8c5aad",
+    "results/READOUT_panel74.json": "ec7e0246016032d926cd1024efc6a107d5d97ed8f79c5bf52dc5dfbc657611b2",
+    "results/READOUT_points.json": "4d374832491300df421c722b34d62dc562aefb50d8161bf061cfae5992889d21",
+    "sample_ext_ids.json": "ddeaa8bfcd1da6f9cfe08121e45838e26dd1b3fd034779a8ef663d9f6393cf8c",
+    "sample_first200_ids.json": "40ffd8f808663835c9a9e05b7593a920c1296c41137f75f77a2351d1b2613498",
+    "scripts/panel_readout.py": "3ab5ec4441347d68aab2843013f7ea7f3cedcaeded4b0a0ed06b32dde9ca08d5",
+    "scripts/points_readout.py": "570f4a98d2174f4f48a4b49cc5f2b8a31fcb24ce7c58163338579091b3e0cb46",
+    "scripts/points_regrade.py": "961912a47f19e3d9b373fc387624bfdddb6ec201d6507fc5f4f3401c7ab305ed"
+  }
+}
