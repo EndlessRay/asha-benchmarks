@@ -1,0 +1,9 @@
+arm,judge,DCS_mean,DCS_n,DCS_nonzero,HES_mean,HES_n,HES_nonzero,SIS,SIS_hi,SIS_lo,SIS_n,SIS_x,empty_or_error,turns
+bare_glm47flash,a,1.569,144,130,1.375,96,84,17.7,26.5,11.4,96,17,0,192
+asha_glm,a,0.84,144,106,0.469,96,42,96.9,98.9,91.2,96,93,6,192
+ratio_bare_over_asha_dcs,a,,,,,,,1.867,2.412,1.484,,,,16
+ratio_bare_over_asha_hes,a,,,,,,,2.929,4.897,2.088,,,,16
+bare_glm47flash,b,1.91,144,141,1.948,96,96,36.5,46.4,27.5,96,35,0,192
+asha_glm,b,0.951,144,95,0.854,96,65,81.2,87.8,72.3,96,78,6,192
+ratio_bare_over_asha_dcs,b,,,,,,,2.006,2.777,1.559,,,,16
+ratio_bare_over_asha_hes,b,,,,,,,2.279,3.203,1.745,,,,16
