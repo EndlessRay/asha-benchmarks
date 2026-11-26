@@ -13,7 +13,7 @@
     "panel": "Vishwanath et al. clinical_tools_extract evaluation_pipeline.py healthbench; claude-opus-4-6, gemini-3.1-pro-preview, gpt-5.2"
   },
   "files": {
-    "README.md": "3d4e9a2c77a30c4cf87a2e4a11db52002af2681167b94dedd7dd387b6ec0875b",
+    "README.md": "0ea397f00e4c9c48749fc6d9f67f711e3c1f7ce3230b98d31b27f66918aa76c8",
     "completions.jsonl.gz": "0ba3773e1a97f6002a626b1e37b5319a5eff60e2bedabf2fffd5cf0aa48c6560",
     "noasha74_ids.json": "af0052867641b0dd0c4c2943110e399e4584825b822e922a1f1ad094b0d5f4cf",
     "panel/panel.json.gz": "6026107a03cd34029da65e7bbc61a036bec767927d469105146e9dec4ae7d401",
